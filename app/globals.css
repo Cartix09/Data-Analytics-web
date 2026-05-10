@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-base: #0a0a0b;
+  --color-elevated: #111114;
+  --color-light: #fafaf9;
+  --color-border-light: #e5e5e5;
+  --color-border-dark: #1f1f23;
+  --color-text-on-dark: #fafafa;
+  --color-text-on-light: #0a0a0b;
+  --color-muted-dark: #a1a1aa;
+  --color-muted-light: #52525b;
+  --color-accent: #22d3ee;
+  --color-accent-strong: #0891b2;
+  --color-accent-soft: #cffafe;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-light);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  html,
+  body {
+    background-color: var(--color-light);
+    color: var(--color-text-on-light);
+  }
+  body {
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text-on-light);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    background: var(--color-base);
+    color: var(--color-text-on-dark);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+  .surface-dark {
+    background-color: var(--color-base);
+    color: var(--color-text-on-dark);
+  }
+  .surface-elevated {
+    background-color: var(--color-elevated);
+    color: var(--color-text-on-dark);
+  }
+  .surface-light {
+    background-color: var(--color-light);
+    color: var(--color-text-on-light);
+  }
+  .surface-white {
+    background-color: #ffffff;
+    color: var(--color-text-on-light);
+  }
+}
+
+@layer utilities {
+  .grid-pattern {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

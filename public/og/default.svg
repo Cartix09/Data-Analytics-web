@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0B"/>
+      <stop offset="100%" stop-color="#111114"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.6">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(80,90)">
+    <rect width="64" height="64" rx="12" fill="#FAFAFA22"/>
+    <path d="M16 46 L26 34 L34 39 L48 23" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M40 23 H48 V31" stroke="#22D3EE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="84" y="32" font-family="Inter, system-ui" font-size="22" font-weight="700" fill="#FAFAFA" letter-spacing="4">ANLYTICS</text>
+    <text x="84" y="56" font-family="Inter, system-ui" font-size="13" font-weight="600" fill="#A1A1AA" letter-spacing="3">DATA ANALYTICS &amp; INSIGHTS</text>
+  </g>
+  <text x="80" y="380" font-family="Inter, system-ui" font-size="68" font-weight="600" fill="#FAFAFA">
+    <tspan x="80" dy="0">Turn your data into</tspan>
+    <tspan x="80" dy="78">decisions your business</tspan>
+    <tspan x="80" dy="78">actually acts on.</tspan>
+  </text>
+  <text x="80" y="600" font-family="Inter, system-ui" font-size="22" font-weight="500" fill="#A1A1AA">
+    Power BI · SQL · Python · Dashboards · Consulting
+  </text>
+</svg>
