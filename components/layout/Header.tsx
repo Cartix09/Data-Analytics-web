@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -10,16 +11,36 @@ import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { MobileNavDrawer } from "./MobileNavDrawer";
 
+/**
+ * Pages that render a dark hero behind a transparent header at the top.
+ * On these pages, the header is dark+transparent at scroll top, and switches
+ * to a solid light surface after the user scrolls past the hero.
+ *
+ * On every other page, the header is always solid light.
+ */
+const DARK_HERO_ROUTES = new Set<string>([
+  "/",
+  "/consulting",
+  "/courses/power-bi-pl-300",
+]);
+
 export function Header() {
+  const pathname = usePathname() ?? "/";
+  const hasDarkHero = DARK_HERO_ROUTES.has(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Visual mode: "dark" = transparent over dark hero, white text + light logo.
+  //              "light" = solid white surface, black text + dark logo.
+  const mode: "dark" | "light" = hasDarkHero && !scrolled ? "dark" : "light";
+  const isDark = mode === "dark";
 
   return (
     <>
@@ -28,25 +49,31 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-40 transition-all duration-200",
-          scrolled
-            ? "bg-base/85 backdrop-blur-md border-b border-white/10"
-            : "bg-transparent"
+          "fixed top-0 inset-x-0 z-40 transition-colors duration-200",
+          isDark
+            ? "bg-base/70 backdrop-blur-md border-b border-white/10"
+            : "bg-white/90 backdrop-blur-md border-b border-border-light"
         )}
       >
         <div className="mx-auto max-w-[1320px] px-6 md:px-12 lg:px-16">
           <div className="flex h-16 lg:h-20 items-center justify-between gap-6">
-            <Logo variant="light" />
+            <Logo variant={isDark ? "light" : "dark"} />
 
             <nav
               aria-label="Primary"
-              className="hidden lg:flex items-center gap-8 text-sm font-medium text-text-on-dark/85"
+              className={cn(
+                "hidden lg:flex items-center gap-8 text-sm font-medium",
+                isDark ? "text-text-on-dark" : "text-text-on-light"
+              )}
             >
               {primaryNav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="transition-colors hover:text-accent"
+                  className={cn(
+                    "transition-colors",
+                    isDark ? "hover:text-accent" : "hover:text-accent-strong"
+                  )}
                 >
                   {item.label}
                 </Link>
@@ -56,7 +83,12 @@ export function Header() {
             <div className="flex items-center gap-2 md:gap-3">
               <Link
                 href="/login"
-                className="hidden md:inline-flex text-sm font-medium text-text-on-dark/85 hover:text-accent transition-colors px-3 py-2"
+                className={cn(
+                  "hidden md:inline-flex text-sm font-medium transition-colors px-3 py-2",
+                  isDark
+                    ? "text-text-on-dark hover:text-accent"
+                    : "text-text-on-light hover:text-accent-strong"
+                )}
               >
                 Student login
               </Link>
@@ -67,7 +99,12 @@ export function Header() {
                 type="button"
                 aria-label="Open menu"
                 onClick={() => setOpen(true)}
-                className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/15 text-text-on-dark"
+                className={cn(
+                  "lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-md border",
+                  isDark
+                    ? "border-white/20 text-text-on-dark"
+                    : "border-border-light text-text-on-light"
+                )}
               >
                 <Menu size={20} aria-hidden />
               </button>
