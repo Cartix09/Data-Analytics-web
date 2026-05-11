@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Youtube } from "lucide-react";
+import { Linkedin, Youtube, Instagram } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/content/nav";
 import { site } from "@/content/site";
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-muted-dark">
-            © {year} ANLYTICS. All rights reserved. · Built by Alish Niftaliyev.
+            © {year} ANLYTICS. All rights reserved. · Built by Mursal Hajiyev and Alish Niftaliyev.
           </p>
           <div className="flex items-center gap-5">
             <Link href="/legal/privacy" className="text-xs text-muted-dark hover:text-accent">
@@ -70,15 +70,13 @@ export function Footer() {
               <Youtube size={18} aria-hidden />
             </a>
             <a
-              href={site.social.x}
+              href={site.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="X / Twitter"
+              aria-label="Instagram"
               className="text-muted-dark hover:text-accent transition-colors"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
+              <Instagram size={18} aria-hidden />
             </a>
           </div>
         </div>

@@ -21,8 +21,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Tell us what you're trying to figure out."
-        subtitle="Whether you're picking the right course or scoping a dashboard project, the same inbox reads them all. We reply within one business day."
+        title="Tell us what your team is trying to figure out."
+        subtitle="Whether you're scoping a dashboard build, automating recurring reports, training your analytics team, or picking the right course for yourself — the same inbox reads them all. We reply within one business day."
       />
 
       <Section tone="light">

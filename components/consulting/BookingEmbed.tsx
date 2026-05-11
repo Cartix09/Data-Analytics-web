@@ -1,9 +1,19 @@
 import { Calendar, Mail } from "lucide-react";
 import { site } from "@/content/site";
 
+/**
+ * Cal.com / Calendly booking embed.
+ *
+ * The URL is read from `NEXT_PUBLIC_BOOKING_URL` via `site.bookingUrl`.
+ * When it's missing, we render a helpful fallback pointing the visitor to
+ * email — never a broken iframe.
+ *
+ * See README → "Cal.com booking setup" for how to configure this without
+ * needing the Cal.com API.
+ */
 export function BookingEmbed() {
   const url = site.bookingUrl;
-  const hasUrl = !!url && url.startsWith("http");
+  const hasUrl = !!url && /^https?:\/\//.test(url);
 
   return (
     <div className="rounded-xl border border-border-light bg-white overflow-hidden">
@@ -28,14 +38,18 @@ export function BookingEmbed() {
         </div>
       ) : (
         <div className="p-8">
-          <p className="text-sm text-muted-light">
-            Calendar embed is not configured yet. In the meantime, email us and we&rsquo;ll book a slot manually.
+          <p className="text-sm text-muted-light leading-relaxed">
+            Booking calendar is not configured yet. Add{" "}
+            <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-light border border-border-light">
+              NEXT_PUBLIC_BOOKING_URL
+            </code>{" "}
+            to <code className="font-mono text-xs px-1.5 py-0.5 rounded bg-light border border-border-light">.env.local</code> or email us directly.
           </p>
           <a
-            href="mailto:hello@anlytics.com"
-            className="mt-4 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-text-on-light hover:bg-accent-strong hover:text-white transition-colors"
+            href={`mailto:${site.email}`}
+            className="mt-5 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-text-on-light hover:bg-accent-strong hover:text-white transition-colors"
           >
-            <Mail size={14} aria-hidden /> Email hello@anlytics.com
+            <Mail size={14} aria-hidden /> Email {site.email}
           </a>
         </div>
       )}

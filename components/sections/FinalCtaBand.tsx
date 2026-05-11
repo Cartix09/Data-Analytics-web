@@ -9,15 +9,15 @@ interface Props {
 }
 
 const defaultPrimary = {
-  label: "Apply to a course",
-  href: "/courses/power-bi-pl-300",
-  description: "Become the analyst your team relies on.",
+  label: "Book a consultation for your team",
+  href: "/contact",
+  description: "Need dashboards, reporting automation, or analytics training for your team?",
 };
 
 const defaultSecondary = {
-  label: "Book a consultation",
-  href: "/contact",
-  description: "Need dashboards that ship? Talk to us.",
+  label: "Apply to a course",
+  href: "/courses/power-bi-pl-300",
+  description: "Become the analyst your team relies on.",
 };
 
 export function FinalCtaBand({

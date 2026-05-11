@@ -42,6 +42,37 @@ pnpm lint         # next lint
 
 In MVP the API routes accept submissions and `console.log` them so you can see they work. Wire them to Resend / a CRM in Phase 2.
 
+## Cal.com booking setup
+
+**You do not need the Cal.com API for the MVP.** The site embeds a Cal.com (or Calendly) link directly via iframe.
+
+To configure:
+
+1. Create an event type in Cal.com (e.g. a 30-minute consultation).
+2. Copy the booking URL — for example `https://cal.com/your-username/30min`.
+3. Add it to `.env.local`:
+   ```
+   NEXT_PUBLIC_BOOKING_URL=https://cal.com/your-username/30min
+   ```
+4. Restart `pnpm dev` (env vars are baked at server start).
+
+The embed appears on `/consulting` and `/contact`. If `NEXT_PUBLIC_BOOKING_URL` is empty, the `BookingEmbed` component renders a clean "not configured" fallback with an email CTA instead of a broken iframe — so the site never looks broken even before booking is set up.
+
+**When do you need the Cal.com API?** Only later — for custom scheduling logic, automatic CRM sync (HubSpot / Salesforce / Pipedrive), routing forms with conditional logic, or programmatic availability lookups. For Phase 1, the public booking URL is enough.
+
+## Student Hub
+
+`/login` renders a temporary **Student Hub** with:
+
+- Google Classroom link (course materials and assignments).
+- Three Microsoft Teams weekly live session links.
+- An availability form (`POST /api/availability`).
+- A "Course materials" grid.
+
+All editable content lives in [`content/studentHub.ts`](./content/studentHub.ts) — Google Classroom URL, Teams meeting URLs, weekly session schedule, materials list. Edit that file and redeploy. No CMS or admin UI yet.
+
+**Phase 2 plan:** replace `content/studentHub.ts` with a Sanity-backed CMS or a proper authenticated admin area so Alish and Mursal can edit hub links and materials without a code deploy.
+
 ## Project structure
 
 ```

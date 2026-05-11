@@ -73,8 +73,18 @@ export const Button = forwardRef<HTMLButtonElement, AnyButtonProps>(function But
     );
   }
 
-  const { variant: _v, size: _s, className: _c, children: _ch, ...rest } =
-    props as ButtonProps;
+  // Strip non-DOM props before spreading on <button>. Includes optional
+  // `href` / `external` that may have been passed when callers couldn't
+  // confidently provide a URL — we still render a button in that case.
+  const {
+    variant: _v,
+    size: _s,
+    className: _c,
+    children: _ch,
+    href: _href,
+    external: _ext,
+    ...rest
+  } = props as ButtonProps & { href?: string; external?: boolean };
   return (
     <button ref={ref} className={classes} {...rest}>
       {children}

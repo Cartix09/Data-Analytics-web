@@ -4,8 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { CourseCard } from "@/components/courses/CourseCard";
-import { Chip } from "@/components/ui/Chip";
+import { CourseFilters } from "@/components/courses/CourseFilters";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCtaBand } from "@/components/sections/FinalCtaBand";
 import { FadeInUp } from "@/components/motion/FadeInUp";
@@ -13,16 +12,13 @@ import { Button } from "@/components/ui/Button";
 import { publishedCourses } from "@/content/courses";
 import { homeFaq } from "@/content/faq";
 import { buildMetadata } from "@/lib/seo";
-import type { ShowcaseVariant } from "@/components/dashboard-mockup/ShowcaseDashboard";
 
 export const metadata = buildMetadata({
   title: "Courses",
   description:
-    "Cohort and self-paced analytics programs from ANLYTICS — Power BI, SQL, Python, dashboard design, and reporting automation.",
+    "Cohort and self-paced analytics programs from ANLYTICS — Power BI, SQL, Python, dashboard design, reporting automation, and corporate Power BI training for teams.",
   path: "/courses",
 });
-
-const variants: ShowcaseVariant[] = ["sales", "ops", "marketing"];
 
 export default function CoursesPage() {
   const list = publishedCourses();
@@ -30,37 +26,13 @@ export default function CoursesPage() {
     <>
       <PageHero
         eyebrow="Courses"
-        title="Programs for analysts at every stage."
-        subtitle="Cohort programs for working analysts, self-paced courses for upskillers, and corporate training for teams. All taught by a practitioner."
+        title="Programs for analysts and teams at every stage."
+        subtitle="Cohort programs for working analysts, self-paced courses for upskillers, and corporate training engagements for teams. All taught by a practitioner."
       />
 
-      <Section tone="light" spacing="tight">
+      <Section tone="light" spacing="default" className="pt-6 md:pt-10">
         <Container>
-          <FadeInUp className="flex flex-wrap gap-2">
-            <Chip tone="accent">All</Chip>
-            <Chip>Beginner</Chip>
-            <Chip>Intermediate</Chip>
-            <Chip>Advanced</Chip>
-            <span className="hidden md:inline-block w-px h-6 bg-border-light mx-2" />
-            <Chip>Cohort</Chip>
-            <Chip>Self-paced</Chip>
-            <Chip>For teams</Chip>
-          </FadeInUp>
-          <p className="mt-3 text-xs text-muted-light">
-            Filter UI is illustrative — every course below is shown.
-          </p>
-        </Container>
-      </Section>
-
-      <Section tone="light" spacing="default" className="pt-0">
-        <Container>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {list.map((course, i) => (
-              <FadeInUp key={course.slug} delay={i * 0.04}>
-                <CourseCard course={course} variant={variants[i % variants.length]} />
-              </FadeInUp>
-            ))}
-          </div>
+          <CourseFilters courses={list} />
         </Container>
       </Section>
 
@@ -72,16 +44,16 @@ export default function CoursesPage() {
                 <Building2 size={28} aria-hidden />
               </div>
               <div>
-                <Eyebrow tone="dark">For teams</Eyebrow>
+                <Eyebrow tone="dark">For teams · Corporate training</Eyebrow>
                 <h2 className="mt-2 text-display-md text-text-on-dark text-balance">
                   Bring ANLYTICS to your team.
                 </h2>
                 <p className="mt-3 text-muted-dark leading-relaxed max-w-2xl">
-                  Power BI, SQL, and reporting workflows taught against your real data — on your schedule, with measurable team outcomes.
+                  Power BI, SQL, and reporting workflows taught against your team&rsquo;s real data — on your schedule, with measurable team outcomes and a capstone deliverable your business can use.
                 </p>
               </div>
               <Button href="/contact" size="lg">
-                Talk to Alish
+                Book a consultation for your team
               </Button>
             </div>
           </FadeInUp>

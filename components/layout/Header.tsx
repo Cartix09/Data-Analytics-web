@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -12,21 +11,12 @@ import { cn } from "@/lib/cn";
 import { MobileNavDrawer } from "./MobileNavDrawer";
 
 /**
- * Pages that render a dark hero behind a transparent header at the top.
- * On these pages, the header is dark+transparent at scroll top, and switches
- * to a solid light surface after the user scrolls past the hero.
- *
- * On every other page, the header is always solid light.
+ * Every public page on this site renders a dark hero at the top
+ * (Hero on `/`, PageHero everywhere else). The header therefore starts
+ * as dark+transparent over the hero and transitions to a solid white
+ * surface once the user scrolls past it.
  */
-const DARK_HERO_ROUTES = new Set<string>([
-  "/",
-  "/consulting",
-  "/courses/power-bi-pl-300",
-]);
-
 export function Header() {
-  const pathname = usePathname() ?? "/";
-  const hasDarkHero = DARK_HERO_ROUTES.has(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -37,10 +27,9 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Visual mode: "dark" = transparent over dark hero, white text + light logo.
-  //              "light" = solid white surface, black text + dark logo.
-  const mode: "dark" | "light" = hasDarkHero && !scrolled ? "dark" : "light";
-  const isDark = mode === "dark";
+  // "dark" = transparent over the dark hero, white text + light logo.
+  // "light" = solid white surface, black text + dark logo.
+  const isDark = !scrolled;
 
   return (
     <>
@@ -92,7 +81,12 @@ export function Header() {
               >
                 Student login
               </Link>
-              <Button href={site.bookingUrl} external size="sm" className="hidden md:inline-flex">
+              <Button
+                href={site.bookingUrl || "/contact"}
+                external={!!site.bookingUrl}
+                size="sm"
+                className="hidden md:inline-flex"
+              >
                 Book a consultation
               </Button>
               <button

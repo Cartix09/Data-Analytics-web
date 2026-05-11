@@ -25,14 +25,14 @@ export function Hero() {
               Turn your data into decisions your business actually acts on.
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-dark leading-relaxed">
-              Power BI, SQL, and Python training built around real reporting work — and dashboard consulting for teams who&rsquo;d rather we just ship it.
+              We build dashboards, automate reporting, and run analytics audits for teams — and train the professionals who&rsquo;ll own that work tomorrow. Power BI, SQL, and Python, taught and shipped by practitioners.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/courses" size="lg">
-                Explore courses
+              <Button href="/consulting" size="lg">
+                Work with our team
               </Button>
-              <Button href="/contact" variant="secondary-dark" size="lg">
-                Book a consultation
+              <Button href="/courses" variant="secondary-dark" size="lg">
+                Explore courses
               </Button>
             </div>
             <p className="mt-8 text-sm text-muted-dark">

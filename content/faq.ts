@@ -6,7 +6,11 @@ export interface FaqEntry {
 export const homeFaq: FaqEntry[] = [
   {
     q: "Who is ANLYTICS for?",
-    a: "Two groups. Analysts and professionals who want practical Power BI, SQL, and Python training that holds up at work. And companies that need dashboards built, reporting automated, or their analytics stack reviewed by a senior practitioner.",
+    a: "Two groups. Teams and companies that need dashboards built, reporting automated, analytics audited, or their team trained on Power BI by a senior practitioner. And individual professionals — analysts, finance, ops, supply — who want practical Power BI, SQL, and Python training that holds up at work.",
+  },
+  {
+    q: "Can you train our analytics team on Power BI internally?",
+    a: "Yes. Corporate training engagements are scoped per team — the curriculum maps to your real datasets, your reporting cadence, and the decisions your leadership is actually trying to make. Book a consultation and we'll outline a program.",
   },
   {
     q: "Who teaches the courses?",

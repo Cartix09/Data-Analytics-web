@@ -89,7 +89,11 @@ export function MobileNavDrawer({ open, onClose }: Props) {
               </ul>
             </nav>
             <div className="px-6 pb-10 space-y-3 border-t border-white/10 pt-6">
-              <Button href={site.bookingUrl} external className="w-full">
+              <Button
+                href={site.bookingUrl || "/contact"}
+                external={!!site.bookingUrl}
+                className="w-full"
+              >
                 Book a consultation
               </Button>
               <Button href="/courses" variant="secondary-dark" className="w-full">

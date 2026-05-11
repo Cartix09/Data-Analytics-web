@@ -7,7 +7,7 @@ export function organizationLd() {
     name: site.name,
     url: site.url,
     logo: `${site.url}/logo/anlytics-mark.svg`,
-    sameAs: [site.social.linkedin, site.social.youtube, site.social.x],
+    sameAs: [site.social.linkedin, site.social.youtube, site.social.instagram],
     founder: {
       "@type": "Person",
       name: site.founder.name,

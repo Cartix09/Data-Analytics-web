@@ -11,9 +11,9 @@ import { Button } from "@/components/ui/Button";
 import { RadioChipGroup } from "@/components/ui/RadioChipGroup";
 
 const intents = [
-  { value: "course", label: "Course question" },
   { value: "consulting", label: "Consulting inquiry" },
   { value: "corporate", label: "Corporate training" },
+  { value: "course", label: "Course question" },
   { value: "other", label: "Other" },
 ];
 
@@ -39,7 +39,7 @@ export function ContactForm() {
   } = useForm<FormValues>({
     resolver: zodResolver(Schema),
     defaultValues: {
-      intent: "course",
+      intent: "consulting",
       name: "",
       email: "",
       company: "",

@@ -17,9 +17,9 @@ import { buildMetadata } from "@/lib/seo";
 import { JsonLd, faqLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "ANLYTICS — Data analytics & insights, taught and shipped",
+  title: "ANLYTICS — Data analytics for teams, taught and shipped",
   description:
-    "Practical analytics education and dashboard consulting. Power BI, SQL, and Python training built around real reporting work — and dashboards built by practitioners who do this every day.",
+    "Dashboard builds, reporting automation, analytics audits, and corporate Power BI training for teams. Practical Power BI, SQL, and Python courses for professionals. Built and taught by practitioners.",
   path: "/",
 });
 
@@ -30,10 +30,10 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <LearnHireSplit />
-      <FeaturedCourses />
-      <Methodology tone="dark" />
       <ConsultingPreview />
+      <Methodology tone="dark" />
       <DashboardShowcase />
+      <FeaturedCourses />
       <FounderBlock variant="compact" />
       <TestimonialsPlaceholder />
       <FaqAccordion items={homeFaq} tone="light" />
