@@ -40,7 +40,7 @@ const config: Record<
 export function ShowcaseDashboard({ variant }: Props) {
   const c = config[variant];
   return (
-    <div className="rounded-xl border border-white/10 bg-elevated/95 overflow-hidden">
+    <div className="h-full rounded-xl border border-white/10 bg-elevated/95 overflow-hidden flex flex-col">
       <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
         <span className="text-[10px] font-medium text-muted-dark">{c.title}</span>
         <div className="flex items-center gap-1">
@@ -49,13 +49,13 @@ export function ShowcaseDashboard({ variant }: Props) {
           <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
         </div>
       </div>
-      <div className="p-3 space-y-3">
+      <div className="flex-1 p-3 flex flex-col gap-3">
         <div className="grid grid-cols-3 gap-2">
           {c.kpis.map((k) => (
             <KpiTile key={k.label} {...k} />
           ))}
         </div>
-        <div className="rounded-md border border-white/10 bg-white/[0.02] p-2">
+        <div className="flex-1 rounded-md border border-white/10 bg-white/[0.02] p-2 flex items-center">
           <ChartLine height={80} />
         </div>
       </div>

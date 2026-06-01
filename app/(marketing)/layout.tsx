@@ -1,4 +1,4 @@
-import { Header } from "@/components/layout/Header";
+import { HeaderServer } from "@/components/layout/HeaderServer";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta";
 
@@ -9,7 +9,7 @@ export default function MarketingLayout({
 }) {
   return (
     <>
-      <Header />
+      <HeaderServer />
       <main id="main">{children}</main>
       <Footer />
       <StickyMobileCta />

@@ -21,9 +21,9 @@ export function ConsultingPreview() {
             Engagements designed for finance, ops, and analytics leaders who need decisions backed by data their team can trust — and own.
           </p>
         </FadeInUp>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
           {list.map((s, i) => (
-            <FadeInUp key={s.slug} delay={i * 0.05}>
+            <FadeInUp key={s.slug} delay={i * 0.05} className="h-full">
               <ServiceCard service={s} />
             </FadeInUp>
           ))}

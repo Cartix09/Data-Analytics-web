@@ -8,13 +8,19 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { primaryNav } from "@/content/nav";
 import { site } from "@/content/site";
+import type { Dictionary } from "@/content/i18n/en";
+import type { Locale } from "@/lib/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 interface Props {
   open: boolean;
   onClose: () => void;
+  dict: Dictionary;
+  locale: Locale;
 }
 
-export function MobileNavDrawer({ open, onClose }: Props) {
+export function MobileNavDrawer({ open, onClose, dict, locale }: Props) {
+  const t = dict.nav;
   const reduce = useReducedMotion();
 
   useEffect(() => {
@@ -34,6 +40,14 @@ export function MobileNavDrawer({ open, onClose }: Props) {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [open, onClose]);
+
+  const navLabels: Record<string, string> = {
+    "/courses": t.courses,
+    "/consulting": t.consulting,
+    "/resources": t.resources,
+    "/about": t.about,
+    "/contact": t.contact,
+  };
 
   return (
     <AnimatePresence>
@@ -73,7 +87,7 @@ export function MobileNavDrawer({ open, onClose }: Props) {
                       onClick={onClose}
                       className="block py-3 text-2xl font-semibold text-text-on-dark hover:text-accent transition-colors"
                     >
-                      {item.label}
+                      {navLabels[item.href] ?? item.label}
                     </Link>
                   </li>
                 ))}
@@ -83,10 +97,16 @@ export function MobileNavDrawer({ open, onClose }: Props) {
                     onClick={onClose}
                     className="block py-3 text-2xl font-semibold text-muted-dark hover:text-accent transition-colors"
                   >
-                    Student login
+                    {t.studentLogin}
                   </Link>
                 </li>
               </ul>
+              <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+                <span className="text-xs uppercase tracking-[0.18em] text-muted-dark">
+                  {dict.footer.language}
+                </span>
+                <LanguageSwitcher current={locale} tone="dark" />
+              </div>
             </nav>
             <div className="px-6 pb-10 space-y-3 border-t border-white/10 pt-6">
               <Button
@@ -94,10 +114,10 @@ export function MobileNavDrawer({ open, onClose }: Props) {
                 external={!!site.bookingUrl}
                 className="w-full"
               >
-                Book a consultation
+                {t.bookConsultation}
               </Button>
               <Button href="/courses" variant="secondary-dark" className="w-full">
-                Explore courses
+                {dict.hero.secondaryCta}
               </Button>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { Header } from "@/components/layout/Header";
+import { HeaderServer } from "@/components/layout/HeaderServer";
 import { Footer } from "@/components/layout/Footer";
 
 export default function LegalLayout({
@@ -8,7 +8,7 @@ export default function LegalLayout({
 }) {
   return (
     <>
-      <Header />
+      <HeaderServer />
       <main id="main">{children}</main>
       <Footer />
     </>

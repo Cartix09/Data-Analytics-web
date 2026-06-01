@@ -87,20 +87,20 @@ export default function StudentHubPage() {
               calendar — recordings are posted in Google Classroom afterwards.
             </p>
           </FadeInUp>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-3 items-stretch">
             {studentHub.teamsSessions.map((session, i) => {
               const ready = isConfigured(session.url);
               return (
-                <FadeInUp key={session.day + i} delay={i * 0.05}>
-                  <Card hover className="h-full">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-accent/10 text-accent-strong">
+                <FadeInUp key={session.day + i} delay={i * 0.05} className="h-full">
+                  <Card hover className="h-full flex flex-col">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent-strong">
                       <Video size={20} aria-hidden />
                     </div>
-                    <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-light">
+                    <p className="mt-5 text-xs uppercase tracking-[0.16em] text-muted-light">
                       {session.label}
                     </p>
                     <h3 className="mt-1 text-xl font-semibold">{session.day}</h3>
-                    <div className="mt-6">
+                    <div className="mt-auto pt-6">
                       {ready ? (
                         <Button href={session.url} external size="sm">
                           Join Teams meeting
@@ -171,19 +171,21 @@ export default function StudentHubPage() {
               as we cover them.
             </p>
           </FadeInUp>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {studentHub.materials.map((m, i) => {
               const ready = isConfigured(m.url);
               return (
-                <FadeInUp key={m.title} delay={i * 0.05}>
+                <FadeInUp key={m.title} delay={i * 0.05} className="h-full">
                   <Card hover className="h-full flex flex-col">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between min-h-[40px]">
                       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-accent/10 text-accent-strong">
                         <FileText size={18} aria-hidden />
                       </div>
                       {m.tag ? <Chip tone="accent">{m.tag}</Chip> : null}
                     </div>
-                    <h3 className="mt-5 text-lg font-semibold">{m.title}</h3>
+                    <h3 className="mt-5 text-lg font-semibold leading-snug min-h-[3rem]">
+                      {m.title}
+                    </h3>
                     <p className="mt-2 text-sm text-muted-light leading-relaxed">
                       {m.description}
                     </p>

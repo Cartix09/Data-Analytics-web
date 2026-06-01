@@ -22,14 +22,20 @@ function CardBody({
   const live = liveCourseSlugs.has(course.slug);
   return (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden bg-base">
+      {/* fixed-aspect mockup frame — every card's preview is the same size */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-base border-b border-border-light">
         <div aria-hidden className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative h-full w-full p-4">
-          <ShowcaseDashboard variant={variant} />
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div className="w-full max-w-[420px]">
+            <ShowcaseDashboard variant={variant} />
+          </div>
         </div>
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-6 md:p-7">
-        <div className="flex flex-wrap items-center gap-2">
+
+      {/* body — fills remaining height; bottom meta row is pinned by mt-auto */}
+      <div className="flex flex-1 flex-col p-6 md:p-7">
+        {/* chips row — fixed min-height so titles below align across cards */}
+        <div className="flex flex-wrap items-center gap-2 min-h-[28px]">
           <Chip tone="accent">{course.level}</Chip>
           <Chip>{course.format}</Chip>
           {!live ? (
@@ -38,14 +44,18 @@ function CardBody({
             </Chip>
           ) : null}
         </div>
-        <div>
-          <h3 className="text-xl font-semibold text-text-on-light">
-            {course.title}
-          </h3>
-          <p className="mt-2 text-sm text-muted-light leading-relaxed">
-            {course.outcome}
-          </p>
-        </div>
+
+        {/* title — reserved min-height keeps the line below aligned */}
+        <h3 className="mt-4 text-xl font-semibold leading-snug text-text-on-light text-balance min-h-[3.25rem]">
+          {course.title}
+        </h3>
+
+        {/* outcome — reserved min-height for three-line consistency */}
+        <p className="mt-2 text-sm text-muted-light leading-relaxed min-h-[4.5rem]">
+          {course.outcome}
+        </p>
+
+        {/* footer — always at the bottom of the card */}
         <div className="mt-auto flex items-center justify-between border-t border-border-light pt-4">
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-light">
             <Clock size={13} aria-hidden /> {course.durationLabel}

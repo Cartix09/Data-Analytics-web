@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CourseFilters } from "@/components/courses/CourseFilters";
+import { getDict, getLocale } from "@/lib/i18n";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCtaBand } from "@/components/sections/FinalCtaBand";
 import { FadeInUp } from "@/components/motion/FadeInUp";
@@ -20,8 +21,9 @@ export const metadata = buildMetadata({
   path: "/courses",
 });
 
-export default function CoursesPage() {
+export default async function CoursesPage() {
   const list = publishedCourses();
+  const dict = getDict(await getLocale());
   return (
     <>
       <PageHero
@@ -32,7 +34,7 @@ export default function CoursesPage() {
 
       <Section tone="light" spacing="default" className="pt-6 md:pt-10">
         <Container>
-          <CourseFilters courses={list} />
+          <CourseFilters courses={list} dict={dict} />
         </Container>
       </Section>
 
@@ -81,7 +83,7 @@ export default function CoursesPage() {
         </Container>
       </Section>
 
-      <FaqAccordion items={homeFaq} tone="dark" />
+      <FaqAccordion items={homeFaq} tone="light" />
       <FinalCtaBand />
     </>
   );

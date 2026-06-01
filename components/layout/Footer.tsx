@@ -4,9 +4,24 @@ import { Logo } from "@/components/ui/Logo";
 import { footerNav } from "@/content/nav";
 import { site } from "@/content/site";
 import { NewsletterInline } from "@/components/sections/NewsletterInline";
+import { getDict, getLocale } from "@/lib/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Footer() {
+export async function Footer() {
+  const locale = await getLocale();
+  const dict = getDict(locale);
+  const t = dict.footer;
   const year = new Date().getFullYear();
+
+  // Column headings come from the dictionary; link labels (course names,
+  // service names) stay in their original form to avoid breaking deep links.
+  const columnLabel: Record<string, string> = {
+    Courses: t.courses,
+    Consulting: t.consulting,
+    Company: t.company,
+    Resources: t.resources,
+  };
+
   return (
     <footer className="surface-dark border-t border-white/10">
       <div className="mx-auto max-w-[1200px] px-6 md:px-12 lg:px-16 py-16 md:py-20">
@@ -16,13 +31,19 @@ export function Footer() {
             <p className="max-w-sm text-sm text-muted-dark leading-relaxed">
               {site.tagline}
             </p>
-            <NewsletterInline tone="dark" compact />
+            <NewsletterInline tone="dark" compact dict={dict} />
+            <div className="pt-2">
+              <span className="block text-xs uppercase tracking-[0.18em] text-muted-dark mb-2">
+                {t.language}
+              </span>
+              <LanguageSwitcher current={locale} tone="dark" />
+            </div>
           </div>
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(footerNav).map(([heading, items]) => (
               <div key={heading}>
                 <h3 className="text-eyebrow uppercase tracking-[0.18em] text-text-on-dark mb-4">
-                  {heading}
+                  {columnLabel[heading] ?? heading}
                 </h3>
                 <ul className="space-y-2.5">
                   {items.map((item) => (
@@ -42,14 +63,20 @@ export function Footer() {
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-muted-dark">
-            © {year} ANLYTICS. All rights reserved. · Built by Mursal Hajiyev and Alish Niftaliyev.
+            © {year} ANLYTICS. {t.rights} · {t.builtBy}
           </p>
           <div className="flex items-center gap-5">
-            <Link href="/legal/privacy" className="text-xs text-muted-dark hover:text-accent">
-              Privacy
+            <Link
+              href="/legal/privacy"
+              className="text-xs text-muted-dark hover:text-accent"
+            >
+              {t.privacy}
             </Link>
-            <Link href="/legal/terms" className="text-xs text-muted-dark hover:text-accent">
-              Terms
+            <Link
+              href="/legal/terms"
+              className="text-xs text-muted-dark hover:text-accent"
+            >
+              {t.terms}
             </Link>
             <a
               href={site.social.linkedin}

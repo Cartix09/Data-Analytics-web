@@ -24,9 +24,9 @@ export function FeaturedCourses() {
             Cohort and self-paced programs in the tools analysts actually use at work — taught by a practitioner.
           </p>
         </FadeInUp>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {list.map((course, i) => (
-            <FadeInUp key={course.slug} delay={i * 0.05}>
+            <FadeInUp key={course.slug} delay={i * 0.05} className="h-full">
               <CourseCard course={course} variant={variants[i % variants.length]} />
             </FadeInUp>
           ))}

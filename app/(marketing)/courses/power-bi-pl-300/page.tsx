@@ -359,7 +359,7 @@ export default function PowerBiPage() {
       </Section>
 
       {/* FAQ */}
-      <FaqAccordion items={course.faq} tone="dark" eyebrow="FAQ" title="Common questions." />
+      <FaqAccordion items={course.faq} tone="light" eyebrow="FAQ" title="Common questions." />
 
       {/* Application */}
       <Section tone="light" id="apply">

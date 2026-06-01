@@ -7,6 +7,7 @@ import type { Course } from "@/content/courses";
 import { CourseCard } from "@/components/courses/CourseCard";
 import type { ShowcaseVariant } from "@/components/dashboard-mockup/ShowcaseDashboard";
 import { cn } from "@/lib/cn";
+import type { Dictionary } from "@/content/i18n/en";
 
 const variants: ShowcaseVariant[] = ["sales", "ops", "marketing"];
 
@@ -19,18 +20,9 @@ type FilterValue =
   | "self-paced"
   | "teams";
 
-const filters: { value: FilterValue; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "beginner", label: "Beginner" },
-  { value: "intermediate", label: "Intermediate" },
-  { value: "advanced", label: "Advanced" },
-  { value: "cohort", label: "Cohort" },
-  { value: "self-paced", label: "Self-paced" },
-  { value: "teams", label: "For teams" },
-];
-
 interface Props {
   courses: Course[];
+  dict?: Dictionary;
 }
 
 function matches(course: Course, filter: FilterValue): boolean {
@@ -54,8 +46,19 @@ function matches(course: Course, filter: FilterValue): boolean {
   }
 }
 
-export function CourseFilters({ courses }: Props) {
+export function CourseFilters({ courses, dict }: Props) {
   const [active, setActive] = useState<FilterValue>("all");
+
+  const t = dict?.courseFilters;
+  const filters: { value: FilterValue; label: string }[] = [
+    { value: "all", label: t?.all ?? "All" },
+    { value: "beginner", label: t?.beginner ?? "Beginner" },
+    { value: "intermediate", label: t?.intermediate ?? "Intermediate" },
+    { value: "advanced", label: t?.advanced ?? "Advanced" },
+    { value: "cohort", label: t?.cohort ?? "Cohort" },
+    { value: "self-paced", label: t?.selfPaced ?? "Self-paced" },
+    { value: "teams", label: t?.forTeams ?? "For teams" },
+  ];
 
   const filtered = useMemo(
     () => courses.filter((c) => matches(c, active)),
@@ -93,7 +96,7 @@ export function CourseFilters({ courses }: Props) {
 
       <div className="mt-12">
         {filtered.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {filtered.map((course, i) => (
               <CourseCard
                 key={course.slug}
@@ -105,17 +108,17 @@ export function CourseFilters({ courses }: Props) {
         ) : (
           <div className="rounded-xl border border-border-light bg-white p-10 md:p-14 text-center">
             <p className="text-display-md text-balance">
-              No programs match this filter yet.
+              {t?.emptyTitle ?? "No programs match this filter yet."}
             </p>
             <p className="mt-4 text-muted-light leading-relaxed max-w-xl mx-auto">
-              Talk to us about a custom training path — we scope corporate
-              programs around your team&rsquo;s real data and workflows.
+              {t?.emptyBody ??
+                "Talk to us about a custom training path — we scope corporate programs around your team's real data and workflows."}
             </p>
             <Link
               href="/contact"
               className="mt-6 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-text-on-light hover:bg-accent-strong hover:text-white transition-colors"
             >
-              Book a consultation
+              {t?.emptyCta ?? "Book a consultation"}
               <ArrowRight size={16} aria-hidden />
             </Link>
           </div>

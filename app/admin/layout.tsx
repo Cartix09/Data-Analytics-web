@@ -3,18 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Student Hub",
-  description:
-    "ANLYTICS student hub — Google Classroom, live Teams sessions, course materials, and availability collection while the full portal is being built.",
-  path: "/login",
+  title: "Admin guide",
+  description: "Where to edit ANLYTICS website content while a full CMS is on the roadmap.",
+  path: "/admin",
   noindex: true,
 });
 
-export default function StudentHubLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <HeaderServer />

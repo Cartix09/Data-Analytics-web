@@ -73,6 +73,59 @@ All editable content lives in [`content/studentHub.ts`](./content/studentHub.ts)
 
 **Phase 2 plan:** replace `content/studentHub.ts` with a Sanity-backed CMS or a proper authenticated admin area so Alish and Mursal can edit hub links and materials without a code deploy.
 
+## Internationalization (English / Azerbaijani)
+
+The site supports two locales out of the box: **English** (`en`, default) and **Azerbaijani** (`az`).
+
+How it works:
+
+- Dictionaries live in `content/i18n/en.ts` and `content/i18n/az.ts`. `en.ts` defines the canonical `Dictionary` type; `az.ts` implements the same shape.
+- `lib/i18n.ts` exposes `getLocale()` (reads the `anlytics_locale` cookie in server components) and `getDict(locale)`.
+- `app/actions/locale.ts` is a server action that sets the cookie and revalidates the layout.
+- `components/layout/LanguageSwitcher.tsx` renders the `EN / AZ` toggle in the footer and mobile drawer.
+
+Currently translated:
+
+- Navigation, hero, learn/hire split, footer (column headings, credit, newsletter), course filter labels, language switcher.
+
+**TODO:** the long-form copy below is still English-only and needs Azerbaijani versions (or a translation pipeline):
+
+- Course detail pages (curriculum weeks, capstones, FAQ answers, course-page differentiators)
+- `/consulting` services + engagement models + methodology body copy
+- `/about` founder bio paragraphs and "what we believe" body copy
+- `/resources` post titles & descriptions
+- `/contact` form placeholder copy
+- `/admin` guide (intentionally English-only — internal page)
+- Legal pages (`/legal/privacy`, `/legal/terms`)
+
+To add a new translatable string:
+
+1. Add the key to `content/i18n/en.ts` (canonical type).
+2. Add the same key with the Azerbaijani value to `content/i18n/az.ts`.
+3. Read it in your component via `const t = getDict(await getLocale());`. For client components, pass `dict` as a prop from a server component.
+
+Product/brand tokens (Power BI, SQL, Python, PL-300, DAX, ANLYTICS, Procter & Gamble) stay in their original form across all locales.
+
+## Admin guide
+
+A read-only guide at [`/admin`](http://localhost:3000/admin) maps every editable surface to its source file. It is **not** an authenticated CMS — it is documentation in page form. The page is `noindex` and disallowed in `robots.txt`.
+
+Where to edit (full list also in the admin page):
+
+| Area | File |
+| --- | --- |
+| Site settings (email, tagline, socials) | `content/site.ts` |
+| Courses (catalog, curriculum, FAQ) | `content/courses.ts` |
+| Student Hub links (Classroom, Teams, materials) | `content/studentHub.ts` |
+| Consulting services + engagement models | `content/services.ts` |
+| Home / consulting FAQ | `content/faq.ts` |
+| Resources / blog placeholders | `content/resources.ts` |
+| Founder bio | `content/founder.ts` |
+| Translations | `content/i18n/en.ts` + `content/i18n/az.ts` |
+| Booking URL, email destination | `.env.local` |
+
+**Phase 2 plan for editing:** introduce **Sanity Studio** (or Payload CMS) as a hosted admin so Alish and Mursal can edit content in a browser without a deploy. The TypeScript content shapes can be mirrored directly into Sanity schemas, so components don't move. Phase 3 adds an authenticated admin area for student-management features.
+
 ## Project structure
 
 ```

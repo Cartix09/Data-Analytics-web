@@ -5,7 +5,6 @@ import { FeaturedCourses } from "@/components/sections/FeaturedCourses";
 import { Methodology } from "@/components/sections/Methodology";
 import { ConsultingPreview } from "@/components/sections/ConsultingPreview";
 import { DashboardShowcase } from "@/components/sections/DashboardShowcase";
-import { FounderBlock } from "@/components/sections/FounderBlock";
 import { TestimonialsPlaceholder } from "@/components/sections/TestimonialsPlaceholder";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { FinalCtaBand } from "@/components/sections/FinalCtaBand";
@@ -34,7 +33,6 @@ export default function HomePage() {
       <Methodology tone="dark" />
       <DashboardShowcase />
       <FeaturedCourses />
-      <FounderBlock variant="compact" />
       <TestimonialsPlaceholder />
       <FaqAccordion items={homeFaq} tone="light" />
       <FinalCtaBand />

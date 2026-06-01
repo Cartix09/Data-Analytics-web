@@ -21,11 +21,11 @@ export function Methodology({ tone = "dark" }: Props) {
             The same four-step approach we follow on every consulting engagement is the spine of every course we teach.
           </p>
         </FadeInUp>
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
           {methodology.map((step, i) => (
-            <FadeInUp key={step.number} delay={i * 0.05}>
+            <FadeInUp key={step.number} delay={i * 0.05} className="h-full">
               <div
-                className={`relative rounded-xl border p-6 md:p-7 h-full ${
+                className={`relative rounded-xl border p-6 md:p-7 h-full flex flex-col ${
                   isDark
                     ? "border-white/10 bg-white/[0.02]"
                     : "border-border-light bg-white"

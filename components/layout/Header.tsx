@@ -9,6 +9,13 @@ import { primaryNav } from "@/content/nav";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { MobileNavDrawer } from "./MobileNavDrawer";
+import type { Dictionary } from "@/content/i18n/en";
+import type { Locale } from "@/lib/i18n";
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+}
 
 /**
  * Every public page on this site renders a dark hero at the top
@@ -16,7 +23,8 @@ import { MobileNavDrawer } from "./MobileNavDrawer";
  * as dark+transparent over the hero and transitions to a solid white
  * surface once the user scrolls past it.
  */
-export function Header() {
+export function Header({ dict, locale }: Props) {
+  const t = dict.nav;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -31,10 +39,19 @@ export function Header() {
   // "light" = solid white surface, black text + dark logo.
   const isDark = !scrolled;
 
+  // Translate the nav labels by mapping href -> dictionary key.
+  const navLabels: Record<string, string> = {
+    "/courses": t.courses,
+    "/consulting": t.consulting,
+    "/resources": t.resources,
+    "/about": t.about,
+    "/contact": t.contact,
+  };
+
   return (
     <>
       <a href="#main" className="skip-link">
-        Skip to main content
+        {t.skipToContent}
       </a>
       <header
         className={cn(
@@ -64,7 +81,7 @@ export function Header() {
                     isDark ? "hover:text-accent" : "hover:text-accent-strong"
                   )}
                 >
-                  {item.label}
+                  {navLabels[item.href] ?? item.label}
                 </Link>
               ))}
             </nav>
@@ -79,7 +96,7 @@ export function Header() {
                     : "text-text-on-light hover:text-accent-strong"
                 )}
               >
-                Student login
+                {t.studentLogin}
               </Link>
               <Button
                 href={site.bookingUrl || "/contact"}
@@ -87,7 +104,7 @@ export function Header() {
                 size="sm"
                 className="hidden md:inline-flex"
               >
-                Book a consultation
+                {t.bookConsultation}
               </Button>
               <button
                 type="button"
@@ -106,7 +123,7 @@ export function Header() {
           </div>
         </div>
       </header>
-      <MobileNavDrawer open={open} onClose={() => setOpen(false)} />
+      <MobileNavDrawer open={open} onClose={() => setOpen(false)} dict={dict} locale={locale} />
     </>
   );
 }

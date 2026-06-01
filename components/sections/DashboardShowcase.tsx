@@ -20,15 +20,21 @@ export function DashboardShowcase() {
             Built in Power BI. Modeled in SQL. Wired with Python where it earns its keep.
           </p>
         </FadeInUp>
-        <div className="mt-12 grid gap-6 md:grid-cols-3 relative">
-          <FadeInUp>
-            <ShowcaseDashboard variant="sales" />
+        <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch relative">
+          <FadeInUp className="h-full">
+            <div className="h-full">
+              <ShowcaseDashboard variant="sales" />
+            </div>
           </FadeInUp>
-          <FadeInUp delay={0.05}>
-            <ShowcaseDashboard variant="ops" />
+          <FadeInUp delay={0.05} className="h-full">
+            <div className="h-full">
+              <ShowcaseDashboard variant="ops" />
+            </div>
           </FadeInUp>
-          <FadeInUp delay={0.1}>
-            <ShowcaseDashboard variant="marketing" />
+          <FadeInUp delay={0.1} className="h-full">
+            <div className="h-full">
+              <ShowcaseDashboard variant="marketing" />
+            </div>
           </FadeInUp>
         </div>
       </Container>

@@ -51,42 +51,53 @@ export default function ConsultingPage() {
               When you&rsquo;d rather we just ship it.
             </h2>
           </FadeInUp>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 items-stretch">
             {services.map((s, i) => (
-              <FadeInUp key={s.slug} delay={i * 0.04} id={s.slug}>
-                <Card hover className="h-full">
-                  <div className="grid gap-6 md:grid-cols-[auto_1fr]">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-md bg-accent/10 text-accent-strong">
-                      {/* icon via ServiceCard reused — but we need richer layout */}
-                      <span className="text-xl font-semibold">0{i + 1}</span>
+              <FadeInUp key={s.slug} delay={i * 0.04} id={s.slug} className="h-full">
+                <Card hover className="h-full flex flex-col">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent-strong text-xl font-semibold">
+                      0{i + 1}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold leading-snug min-h-[3.25rem]">
+                        {s.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-muted-light leading-relaxed">
+                        {s.summary}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid gap-6 sm:grid-cols-2 flex-1">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-muted-light">
+                        Outcomes
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm">
+                        {s.outcomes.map((o) => (
+                          <li key={o} className="flex gap-2">
+                            <Check
+                              size={14}
+                              aria-hidden
+                              className="mt-1 text-accent-strong shrink-0"
+                            />
+                            <span className="leading-relaxed">{o}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold">{s.title}</h3>
-                      <p className="mt-2 text-sm text-muted-light leading-relaxed">{s.summary}</p>
-                      <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.16em] text-muted-light">Outcomes</p>
-                          <ul className="mt-2 space-y-1.5 text-sm">
-                            {s.outcomes.map((o) => (
-                              <li key={o} className="flex gap-2">
-                                <Check size={14} aria-hidden className="mt-1 text-accent-strong shrink-0" />
-                                <span className="leading-relaxed">{o}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="text-xs uppercase tracking-[0.16em] text-muted-light">Deliverables</p>
-                          <ul className="mt-2 space-y-1.5 text-sm">
-                            {s.deliverables.map((d) => (
-                              <li key={d} className="flex gap-2">
-                                <span className="text-accent-strong">—</span>
-                                <span className="leading-relaxed">{d}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-muted-light">
+                        Deliverables
+                      </p>
+                      <ul className="mt-3 space-y-2 text-sm">
+                        {s.deliverables.map((d) => (
+                          <li key={d} className="flex gap-2">
+                            <span className="text-accent-strong shrink-0">—</span>
+                            <span className="leading-relaxed">{d}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </Card>
@@ -127,11 +138,11 @@ export default function ConsultingPage() {
               Three ways we typically work.
             </h2>
           </FadeInUp>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3 items-stretch">
             {engagementModels.map((m, i) => (
-              <FadeInUp key={m.title} delay={i * 0.05}>
-                <Card hover className="h-full">
-                  <h3 className="text-lg font-semibold">{m.title}</h3>
+              <FadeInUp key={m.title} delay={i * 0.05} className="h-full">
+                <Card hover className="h-full flex flex-col">
+                  <h3 className="text-lg font-semibold min-h-[3rem]">{m.title}</h3>
                   <p className="mt-3 text-sm text-muted-light leading-relaxed">{m.body}</p>
                 </Card>
               </FadeInUp>

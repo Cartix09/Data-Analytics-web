@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/cn";
+import type { Dictionary } from "@/content/i18n/en";
 
 const Schema = z.object({
   email: z.string().email("Enter a valid email address."),
@@ -17,14 +18,24 @@ interface Props {
   compact?: boolean;
   heading?: string;
   description?: string;
+  dict?: Dictionary;
 }
 
 export function NewsletterInline({
   tone = "light",
   compact = false,
-  heading = "The Analytics Journal",
-  description = "One practical breakdown every week — dashboards, DAX, SQL, and the reporting habits that hold up at work.",
+  heading,
+  description,
+  dict,
 }: Props) {
+  const resolvedHeading =
+    heading ?? dict?.footer.newsletterHeading ?? "The Analytics Journal";
+  const resolvedDescription =
+    description ??
+    dict?.footer.newsletterBody ??
+    "One practical breakdown every week — dashboards, DAX, SQL, and the reporting habits that hold up at work.";
+  const subscribeLabel = dict?.footer.subscribe ?? "Subscribe";
+  const privacyNote = dict?.footer.noSpam ?? "No spam. Unsubscribe in one click.";
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const {
@@ -69,7 +80,7 @@ export function NewsletterInline({
               isDark ? "text-text-on-dark" : "text-text-on-light"
             )}
           >
-            {heading}
+            {resolvedHeading}
           </h3>
           <p
             className={cn(
@@ -77,7 +88,7 @@ export function NewsletterInline({
               isDark ? "text-muted-dark" : "text-muted-light"
             )}
           >
-            {description}
+            {resolvedDescription}
           </p>
         </div>
       ) : null}
@@ -120,7 +131,7 @@ export function NewsletterInline({
               disabled={submitting}
               className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-6 text-sm font-semibold text-text-on-light hover:bg-accent-strong hover:text-white transition-colors disabled:opacity-60"
             >
-              Subscribe
+              {subscribeLabel}
               <ArrowRight size={14} aria-hidden />
             </button>
           </div>
@@ -132,7 +143,7 @@ export function NewsletterInline({
             id={errors.email ? "newsletter-email-error" : undefined}
             aria-live="polite"
           >
-            {errors.email?.message ?? "No spam. Unsubscribe in one click."}
+            {errors.email?.message ?? privacyNote}
           </p>
         </form>
       )}
