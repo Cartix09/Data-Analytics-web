@@ -4,10 +4,20 @@ import { Button } from "@/components/ui/Button";
 import { HeroDashboard } from "@/components/dashboard-mockup/HeroDashboard";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { getDict, getLocale } from "@/lib/i18n";
+import { getHomepage } from "@/studio/data";
 
 export async function Hero() {
   const locale = await getLocale();
-  const t = getDict(locale).hero;
+  const fallback = getDict(locale).hero;
+  const cms = (await getHomepage()).hero;
+  const t = {
+    eyebrow: cms?.eyebrow || fallback.eyebrow,
+    h1: cms?.h1 || fallback.h1,
+    subhead: cms?.subhead || fallback.subhead,
+    primaryCta: cms?.primaryCta || fallback.primaryCta,
+    secondaryCta: cms?.secondaryCta || fallback.secondaryCta,
+    microTrust: cms?.microTrust || fallback.microTrust,
+  };
   return (
     <section className="relative surface-dark overflow-hidden pt-28 lg:pt-32 pb-20 lg:pb-28">
       <div

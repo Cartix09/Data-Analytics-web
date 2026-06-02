@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Course } from "@/content/courses";
-import { CourseCard } from "@/components/courses/CourseCard";
+import { CourseCard, courseCardLabels } from "@/components/courses/CourseCard";
 import type { ShowcaseVariant } from "@/components/dashboard-mockup/ShowcaseDashboard";
 import { cn } from "@/lib/cn";
 import type { Dictionary } from "@/content/i18n/en";
@@ -50,6 +50,7 @@ export function CourseFilters({ courses, dict }: Props) {
   const [active, setActive] = useState<FilterValue>("all");
 
   const t = dict?.courseFilters;
+  const cardLabels = courseCardLabels(dict);
   const filters: { value: FilterValue; label: string }[] = [
     { value: "all", label: t?.all ?? "All" },
     { value: "beginner", label: t?.beginner ?? "Beginner" },
@@ -102,6 +103,7 @@ export function CourseFilters({ courses, dict }: Props) {
                 key={course.slug}
                 course={course}
                 variant={variants[i % variants.length]}
+                labels={cardLabels}
               />
             ))}
           </div>

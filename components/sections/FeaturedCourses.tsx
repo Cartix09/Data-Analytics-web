@@ -4,14 +4,17 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
 import { FadeInUp } from "@/components/motion/FadeInUp";
-import { CourseCard } from "@/components/courses/CourseCard";
+import { CourseCard, courseCardLabels } from "@/components/courses/CourseCard";
 import { featuredCourses } from "@/content/courses";
 import type { ShowcaseVariant } from "@/components/dashboard-mockup/ShowcaseDashboard";
+import { getDict, getLocale } from "@/lib/i18n";
 
 const variants: ShowcaseVariant[] = ["sales", "ops", "marketing"];
 
-export function FeaturedCourses() {
+export async function FeaturedCourses() {
   const list = featuredCourses();
+  const dict = getDict(await getLocale());
+  const labels = courseCardLabels(dict);
   return (
     <Section tone="light">
       <Container>
@@ -27,7 +30,11 @@ export function FeaturedCourses() {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
           {list.map((course, i) => (
             <FadeInUp key={course.slug} delay={i * 0.05} className="h-full">
-              <CourseCard course={course} variant={variants[i % variants.length]} />
+              <CourseCard
+                course={course}
+                variant={variants[i % variants.length]}
+                labels={labels}
+              />
             </FadeInUp>
           ))}
         </div>

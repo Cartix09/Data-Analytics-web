@@ -54,6 +54,41 @@ const enDict = {
     seeAll: "See all services",
     primaryCta: "Book a consultation for your team",
   },
+  methodology: {
+    eyebrow: "Methodology",
+    title: "Audit. Model. Build. Automate.",
+    body:
+      "The same four-step approach we follow on every consulting engagement is the spine of every course we teach.",
+  },
+  courseCard: {
+    viewCourse: "View course",
+    notifyMe: "Notify me",
+    comingSoon: "Coming soon",
+    weeks: "weeks",
+    weeksSelfPaced: "weeks · self-paced",
+    workshop: "workshop",
+    customWeeks: "Custom — 4 to 12 weeks",
+  },
+  resourcesPage: {
+    pageTitle: "The Analytics Journal.",
+    pageSubtitle:
+      "Practical breakdowns, templates, and notes from the work — without the buzzwords. The Journal opens with the first published issue. Subscribe and we'll send it the day it ships.",
+    comingUpEyebrow: "Coming up",
+    comingUpTitle: "First issues in the pipeline.",
+    comingUpBody:
+      "We're writing the kind of posts we wish we'd had earlier in our careers. Subscribe and you'll get them as they publish — no clickbait, no stuffing.",
+    comingSoon: "Coming soon",
+  },
+  faqSection: {
+    eyebrow: "FAQ",
+    title: "Questions, answered.",
+  },
+  finalCta: {
+    consultingTitle: "Need dashboards, reporting automation, or analytics training for your team?",
+    consultingCta: "Book a consultation for your team",
+    coursesTitle: "Become the analyst your team relies on.",
+    coursesCta: "Apply to a course",
+  },
   courseFilters: {
     all: "All",
     beginner: "Beginner",

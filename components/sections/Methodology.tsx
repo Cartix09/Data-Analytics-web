@@ -2,23 +2,25 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { methodology } from "@/content/methodology";
+import { getDict, getLocale } from "@/lib/i18n";
 
 interface Props {
   tone?: "dark" | "light";
 }
 
-export function Methodology({ tone = "dark" }: Props) {
+export async function Methodology({ tone = "dark" }: Props) {
+  const t = getDict(await getLocale()).methodology;
   const isDark = tone === "dark";
   return (
     <section className={isDark ? "surface-dark py-16 md:py-24" : "surface-light py-16 md:py-24"}>
       <Container>
         <FadeInUp className="max-w-2xl">
-          <Eyebrow tone={isDark ? "dark" : "light"}>Methodology</Eyebrow>
+          <Eyebrow tone={isDark ? "dark" : "light"}>{t.eyebrow}</Eyebrow>
           <h2 className={`mt-4 text-display-md md:text-display-lg text-balance ${isDark ? "text-text-on-dark" : "text-text-on-light"}`}>
-            Audit. Model. Build. Automate.
+            {t.title}
           </h2>
           <p className={`mt-4 leading-relaxed ${isDark ? "text-muted-dark" : "text-muted-light"}`}>
-            The same four-step approach we follow on every consulting engagement is the spine of every course we teach.
+            {t.body}
           </p>
         </FadeInUp>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">

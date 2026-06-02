@@ -5,11 +5,9 @@ import { footerNav } from "@/content/nav";
 import { site } from "@/content/site";
 import { NewsletterInline } from "@/components/sections/NewsletterInline";
 import { getDict, getLocale } from "@/lib/i18n";
-import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export async function Footer() {
-  const locale = await getLocale();
-  const dict = getDict(locale);
+  const dict = getDict(await getLocale());
   const t = dict.footer;
   const year = new Date().getFullYear();
 
@@ -32,12 +30,6 @@ export async function Footer() {
               {site.tagline}
             </p>
             <NewsletterInline tone="dark" compact dict={dict} />
-            <div className="pt-2">
-              <span className="block text-xs uppercase tracking-[0.18em] text-muted-dark mb-2">
-                {t.language}
-              </span>
-              <LanguageSwitcher current={locale} tone="dark" />
-            </div>
           </div>
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(footerNav).map(([heading, items]) => (

@@ -57,6 +57,42 @@ export const az: Dictionary = {
     seeAll: "Bütün xidmətlərə bax",
     primaryCta: "Komandanız üçün konsultasiya yazdır",
   },
+  methodology: {
+    eyebrow: "Metodologiya",
+    title: "Audit. Modelləşdirmə. Qurma. Avtomatlaşdırma.",
+    body:
+      "Hər konsaltinq əməkdaşlığında izlədiyimiz eyni dörd addımlı yanaşma tədris etdiyimiz hər kursun da əsasını təşkil edir.",
+  },
+  courseCard: {
+    viewCourse: "Kursa bax",
+    notifyMe: "Məlumat ver",
+    comingSoon: "Tezliklə",
+    weeks: "həftə",
+    weeksSelfPaced: "həftə · müstəqil",
+    workshop: "seminar",
+    customWeeks: "Fərdi — 4-12 həftə",
+  },
+  resourcesPage: {
+    pageTitle: "The Analytics Journal.",
+    pageSubtitle:
+      "Praktik təhlillər, şablonlar və işin içindən qeydlər — moda sözlərsiz. Jurnal ilk buraxılışla açılır. Abunə olun və biz onu çıxan günü göndərək.",
+    comingUpEyebrow: "Növbədə",
+    comingUpTitle: "İlk buraxılışlar hazırlıq mərhələsində.",
+    comingUpBody:
+      "Karyeranın əvvəlində özümüzün olmasını istədiyimiz tipdə yazılar yazırıq. Abunə olun — çıxan kimi sizə çatdırılacaq, klikbeyt yoxdur.",
+    comingSoon: "Tezliklə",
+  },
+  faqSection: {
+    eyebrow: "FAQ",
+    title: "Tez-tez verilən suallar.",
+  },
+  finalCta: {
+    consultingTitle:
+      "Komandanız üçün dashboard, hesabat avtomatlaşdırması və ya analitika təlimi lazımdır?",
+    consultingCta: "Komandanız üçün konsultasiya yazdır",
+    coursesTitle: "Komandanızın güvəndiyi analitik olun.",
+    coursesCta: "Kursa müraciət et",
+  },
   courseFilters: {
     all: "Hamısı",
     beginner: "Başlanğıc",

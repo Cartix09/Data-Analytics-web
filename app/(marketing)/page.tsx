@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/Hero";
-import { TrustStrip } from "@/components/sections/TrustStrip";
 import { LearnHireSplit } from "@/components/sections/LearnHireSplit";
 import { FeaturedCourses } from "@/components/sections/FeaturedCourses";
 import { Methodology } from "@/components/sections/Methodology";
@@ -27,7 +26,6 @@ export default function HomePage() {
     <>
       <JsonLd data={faqLd(homeFaq)} />
       <Hero />
-      <TrustStrip />
       <LearnHireSplit />
       <ConsultingPreview />
       <Methodology tone="dark" />

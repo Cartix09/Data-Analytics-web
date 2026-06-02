@@ -9,6 +9,7 @@ import { primaryNav } from "@/content/nav";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { MobileNavDrawer } from "./MobileNavDrawer";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { Dictionary } from "@/content/i18n/en";
 import type { Locale } from "@/lib/i18n";
 
@@ -87,10 +88,13 @@ export function Header({ dict, locale }: Props) {
             </nav>
 
             <div className="flex items-center gap-2 md:gap-3">
+              <div className="hidden md:inline-flex">
+                <LanguageSwitcher current={locale} tone={isDark ? "dark" : "light"} />
+              </div>
               <Link
                 href="/login"
                 className={cn(
-                  "hidden md:inline-flex text-sm font-medium transition-colors px-3 py-2",
+                  "hidden lg:inline-flex text-sm font-medium transition-colors px-3 py-2",
                   isDark
                     ? "text-text-on-dark hover:text-accent"
                     : "text-text-on-light hover:text-accent-strong"

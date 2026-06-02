@@ -73,6 +73,69 @@ All editable content lives in [`content/studentHub.ts`](./content/studentHub.ts)
 
 **Phase 2 plan:** replace `content/studentHub.ts` with a Sanity-backed CMS or a proper authenticated admin area so Alish and Mursal can edit hub links and materials without a code deploy.
 
+## Sanity CMS setup
+
+ANLYTICS ships with a real browser-based content editor — **Sanity Studio** mounted at `/studio`. `/admin` is an alias that redirects to `/studio`.
+
+### Configure
+
+1. Create a free project at [sanity.io/manage](https://sanity.io/manage).
+2. Copy the **project ID** and **dataset name** (usually `production`).
+3. Add to `.env.local`:
+
+   ```
+   NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+   NEXT_PUBLIC_SANITY_DATASET=production
+   NEXT_PUBLIC_SANITY_API_VERSION=2024-12-01
+   ```
+
+4. In the Sanity Manage dashboard, add `http://localhost:3000` (and your production domain) to the **CORS Origins** list with "Allow credentials" enabled.
+5. Restart `pnpm dev`. Visit `/studio` (or `/admin`) — log in with the Sanity account that owns the project.
+
+When `NEXT_PUBLIC_SANITY_PROJECT_ID` is unset, `/studio` renders a setup screen that walks through these steps. Every page on the site continues to render correctly from the TypeScript content files — nothing breaks, editing just isn't live in the browser yet.
+
+### Editable content types (Sanity schemas)
+
+| Schema | What it controls |
+| --- | --- |
+| `siteSettings` *(singleton)* | Brand name, tagline, email, social URLs, booking URL, footer credit |
+| `homepage` *(singleton)* | Hero, Learn/Hire split, Consulting preview, Final CTA copy |
+| `studentHub` *(singleton)* | Google Classroom URL, Teams sessions, availability slots, course materials |
+| `course` | Per-course content (title, outcome, curriculum, FAQ, level, format, audience, pricing note) |
+| `service` | Consulting service cards (title, summary, outcomes, deliverables, icon) |
+| `faqGroup` | FAQ groups by slot (home / consulting / studentHub / per-course) |
+| `resourcePost` | Resources / blog post placeholders |
+| `translation` | UI string overrides (key, English, Azerbaijani) — for browser-editing labels |
+
+### Versions pinned
+
+- `sanity` and `@sanity/vision`: **3.99.x** (matches `next-sanity@9.x` peer requirement).
+- `next-sanity`: **9.12.x** (compatible with Next.js 15). Sanity 5.x + next-sanity 13.x require Next 16, so we pinned to the previous major.
+- `styled-components`: **6.x** (required by Sanity 3 Studio).
+
+### Current wiring + fallback
+
+The site uses Sanity where wired, with **automatic fallback** to `content/*.ts` when Sanity is empty or unconfigured. Today's wiring:
+
+| Surface | Source |
+| --- | --- |
+| Homepage hero copy | Sanity `homepage.hero` → fallback to `content/i18n/en.ts > hero` |
+| Site settings | Sanity `siteSettings` → fallback to `content/site.ts` (via `studio/data.ts`) |
+| Courses, services, student hub, FAQ, resources | Fetcher pattern is defined in `studio/data.ts` — schemas exist, individual pages still read from TS fallback until you publish documents in Sanity |
+
+### Roadmap for full Sanity migration
+
+Pages still using `content/*.ts` only (TODO — wire `studio/data.ts` getters in next pass):
+
+- `/consulting` services + engagement models
+- `/courses` catalog and the Power BI detail page
+- `/login` Student Hub
+- `/resources` post grid
+- FAQ accordions
+- Long-form bio + legal pages
+
+When a document is published in Sanity, that page automatically switches over.
+
 ## Internationalization (English / Azerbaijani)
 
 The site supports two locales out of the box: **English** (`en`, default) and **Azerbaijani** (`az`).

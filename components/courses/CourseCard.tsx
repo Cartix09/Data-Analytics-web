@@ -4,20 +4,38 @@ import type { Course } from "@/content/courses";
 import { Chip } from "@/components/ui/Chip";
 import { ShowcaseDashboard } from "@/components/dashboard-mockup/ShowcaseDashboard";
 import type { ShowcaseVariant } from "@/components/dashboard-mockup/ShowcaseDashboard";
+import type { Dictionary } from "@/content/i18n/en";
+
+interface Labels {
+  viewCourse: string;
+  notifyMe: string;
+  comingSoon: string;
+}
 
 interface Props {
   course: Course;
   variant?: ShowcaseVariant;
+  labels?: Labels;
 }
 
 const liveCourseSlugs = new Set(["power-bi-pl-300"]);
 
+export function courseCardLabels(dict?: Dictionary): Labels {
+  return {
+    viewCourse: dict?.courseCard.viewCourse ?? "View course",
+    notifyMe: dict?.courseCard.notifyMe ?? "Notify me",
+    comingSoon: dict?.courseCard.comingSoon ?? "Coming soon",
+  };
+}
+
 function CardBody({
   course,
   variant,
+  labels,
 }: {
   course: Course;
   variant: ShowcaseVariant;
+  labels: Labels;
 }) {
   const live = liveCourseSlugs.has(course.slug);
   return (
@@ -34,19 +52,20 @@ function CardBody({
 
       {/* body — fills remaining height; bottom meta row is pinned by mt-auto */}
       <div className="flex flex-1 flex-col p-6 md:p-7">
-        {/* chips row — fixed min-height so titles below align across cards */}
-        <div className="flex flex-wrap items-center gap-2 min-h-[28px]">
+        {/* chips row — fixed two-row height so cards with and without
+             "Coming soon" still have titles aligned across the grid */}
+        <div className="flex flex-wrap items-start gap-2 min-h-[64px] content-start">
           <Chip tone="accent">{course.level}</Chip>
           <Chip>{course.format}</Chip>
           {!live ? (
             <Chip className="text-muted-light">
-              <Lock size={11} aria-hidden /> Coming soon
+              <Lock size={11} aria-hidden /> {labels.comingSoon}
             </Chip>
           ) : null}
         </div>
 
         {/* title — reserved min-height keeps the line below aligned */}
-        <h3 className="mt-4 text-xl font-semibold leading-snug text-text-on-light text-balance min-h-[3.25rem]">
+        <h3 className="mt-3 text-xl font-semibold leading-snug text-text-on-light text-balance min-h-[3.25rem]">
           {course.title}
         </h3>
 
@@ -66,7 +85,7 @@ function CardBody({
               (live ? "text-accent-strong" : "text-muted-light")
             }
           >
-            {live ? "View course" : "Notify me"}
+            {live ? labels.viewCourse : labels.notifyMe}
             <ArrowRight
               size={14}
               aria-hidden
@@ -79,16 +98,17 @@ function CardBody({
   );
 }
 
-export function CourseCard({ course, variant = "sales" }: Props) {
+export function CourseCard({ course, variant = "sales", labels }: Props) {
   const live = liveCourseSlugs.has(course.slug);
   const href = live ? `/courses/${course.slug}` : "/contact";
+  const resolvedLabels = labels ?? courseCardLabels();
   return (
     <Link
       href={href}
       className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-light bg-white transition-all duration-200 ease-out-soft hover:-translate-y-0.5 hover:shadow-card hover:border-accent/40"
       aria-label={live ? `View ${course.title}` : `Get notified about ${course.title}`}
     >
-      <CardBody course={course} variant={variant} />
+      <CardBody course={course} variant={variant} labels={resolvedLabels} />
     </Link>
   );
 }

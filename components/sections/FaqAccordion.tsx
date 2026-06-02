@@ -9,12 +9,15 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FadeInUp } from "@/components/motion/FadeInUp";
 import { cn } from "@/lib/cn";
 
+import type { Dictionary } from "@/content/i18n/en";
+
 interface Props {
   items: FaqEntry[];
   tone?: "light" | "dark";
   title?: string;
   eyebrow?: string;
   description?: string;
+  dict?: Dictionary;
 }
 
 /**
@@ -32,10 +35,13 @@ interface Props {
 export function FaqAccordion({
   items,
   tone = "dark",
-  title = "Questions, answered.",
-  eyebrow = "FAQ",
+  title,
+  eyebrow,
   description,
+  dict,
 }: Props) {
+  const resolvedTitle = title ?? dict?.faqSection.title ?? "Questions, answered.";
+  const resolvedEyebrow = eyebrow ?? dict?.faqSection.eyebrow ?? "FAQ";
   const [open, setOpen] = useState<number | null>(0);
   const [mounted, setMounted] = useState(false);
   const reduce = useReducedMotion();
@@ -56,14 +62,14 @@ export function FaqAccordion({
     >
       <Container size="narrow">
         <FadeInUp className="text-center">
-          <Eyebrow tone={isDark ? "dark" : "light"}>{eyebrow}</Eyebrow>
+          <Eyebrow tone={isDark ? "dark" : "light"}>{resolvedEyebrow}</Eyebrow>
           <h2
             className={cn(
               "mt-4 text-display-md md:text-display-lg text-balance",
               isDark ? "text-text-on-dark" : "text-text-on-light"
             )}
           >
-            {title}
+            {resolvedTitle}
           </h2>
           {description ? (
             <p
