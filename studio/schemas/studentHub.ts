@@ -1,6 +1,6 @@
 import { defineType, defineField } from "sanity";
 
-/** Singleton — the Student Hub page configuration. */
+/** Singleton - the Student Hub page configuration. */
 export const studentHub = defineType({
   name: "studentHub",
   title: "Student Hub",

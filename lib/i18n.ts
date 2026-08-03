@@ -26,7 +26,7 @@ export async function getLocale(): Promise<Locale> {
 
 /**
  * Returns the strongly-typed dictionary for a given locale.
- * Safe to use in both server and client components — the value is a plain
+ * Safe to use in both server and client components - the value is a plain
  * object that can be passed across the boundary.
  */
 export function getDict(locale: Locale): Dictionary {

@@ -67,7 +67,7 @@ export function AvailabilityForm({ slots }: Props) {
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-accent/10 text-accent-strong">
           <Check size={18} aria-hidden />
         </div>
-        <h3 className="mt-4 text-lg font-semibold">Thanks — got it.</h3>
+        <h3 className="mt-4 text-lg font-semibold">Thanks - got it.</h3>
         <p className="mt-2 text-sm text-muted-light">
           We&rsquo;ll use your availability when we schedule the next live session block.
         </p>

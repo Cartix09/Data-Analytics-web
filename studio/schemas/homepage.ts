@@ -1,7 +1,7 @@
 import { defineType, defineField } from "sanity";
 
 /**
- * Singleton — homepage hero + consulting preview + learn/hire split copy.
+ * Singleton - homepage hero + consulting preview + learn/hire split copy.
  */
 export const homepage = defineType({
   name: "homepage",

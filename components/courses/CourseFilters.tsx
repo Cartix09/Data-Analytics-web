@@ -114,7 +114,7 @@ export function CourseFilters({ courses, dict }: Props) {
             </p>
             <p className="mt-4 text-muted-light leading-relaxed max-w-xl mx-auto">
               {t?.emptyBody ??
-                "Talk to us about a custom training path — we scope corporate programs around your team's real data and workflows."}
+                "Talk to us about a custom training path - we scope corporate programs around your team's real data and workflows."}
             </p>
             <Link
               href="/contact"

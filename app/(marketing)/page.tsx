@@ -15,9 +15,9 @@ import { buildMetadata } from "@/lib/seo";
 import { JsonLd, faqLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "ANLYTICS — Data analytics for teams, taught and shipped",
+  title: "ANLYTICS - Data analytics for teams and professionals",
   description:
-    "Dashboard builds, reporting automation, analytics audits, and corporate Power BI training for teams. Practical Power BI, SQL, and Python courses for professionals. Built and taught by practitioners.",
+    "Dashboard builds, reporting automation, analytics audits, and corporate Power BI training for teams. Practical Power BI, SQL, and Python courses for professionals - grounded in real business reporting.",
   path: "/",
 });
 

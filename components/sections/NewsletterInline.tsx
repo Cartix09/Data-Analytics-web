@@ -33,7 +33,7 @@ export function NewsletterInline({
   const resolvedDescription =
     description ??
     dict?.footer.newsletterBody ??
-    "One practical breakdown every week — dashboards, DAX, SQL, and the reporting habits that hold up at work.";
+    "One practical breakdown every week - dashboards, DAX, SQL, and the reporting habits that hold up at work.";
   const subscribeLabel = dict?.footer.subscribe ?? "Subscribe";
   const privacyNote = dict?.footer.noSpam ?? "No spam. Unsubscribe in one click.";
   const [done, setDone] = useState(false);

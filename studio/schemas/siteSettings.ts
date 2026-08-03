@@ -1,7 +1,7 @@
 import { defineType, defineField } from "sanity";
 
 /**
- * Singleton document — there is only one Site Settings entry.
+ * Singleton document - there is only one Site Settings entry.
  * Edit brand name, tagline, email, social URLs, booking URL, and footer credit.
  */
 export const siteSettings = defineType({

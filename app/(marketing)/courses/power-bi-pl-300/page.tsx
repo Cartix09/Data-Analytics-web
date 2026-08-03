@@ -22,7 +22,7 @@ import { JsonLd, courseLd, faqLd, breadcrumbLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Power BI Mastery (PL-300)",
   description:
-    "An 8-week cohort program in Power BI modeling, DAX, and dashboard design — PL-300 aligned, taught by a practitioner who builds production reporting at P&G.",
+    "An 8-week cohort program in Power BI modeling, DAX, and dashboard design. PL-300 aligned, taught by an analyst who works with real business reporting at P&G.",
   path: "/courses/power-bi-pl-300",
 });
 
@@ -61,10 +61,10 @@ export default function PowerBiPage() {
               <Eyebrow tone="dark" bordered>
                 {course.eyebrow}
               </Eyebrow>
-              <h1 className="mt-6 text-display-md md:text-display-lg lg:text-display-xl text-text-on-dark text-balance">
+              <h1 className="mt-6 text-3xl md:text-4xl lg:text-display-md xl:text-display-lg text-text-on-dark text-balance leading-tight">
                 {course.heroH1}
               </h1>
-              <p className="mt-6 max-w-xl text-base md:text-lg text-muted-dark leading-relaxed">
+              <p className="mt-5 max-w-xl text-sm md:text-base text-muted-dark leading-relaxed">
                 {course.heroSubhead}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -76,7 +76,7 @@ export default function PowerBiPage() {
                 </Button>
               </div>
               <p className="mt-8 text-sm text-muted-dark">
-                Taught by {founder.name} — {founder.shortRole}.
+                Taught by {founder.name} - {founder.shortRole}.
               </p>
             </FadeInUp>
             <FadeInUp delay={0.1}>
@@ -97,7 +97,7 @@ export default function PowerBiPage() {
               <Chip tone="dark">PL-300 aligned</Chip>
             </div>
             <p className="text-sm text-muted-dark">
-              Built by a senior practitioner who ships production reporting every day.
+              Taught by an analyst who works with real business reporting every day.
             </p>
           </div>
         </Container>
@@ -113,7 +113,7 @@ export default function PowerBiPage() {
                 What you&rsquo;ll be able to do.
               </h2>
               <p className="mt-4 text-muted-light leading-relaxed">
-                Concrete skills you&rsquo;ll bring back to your job by the end of the program — not abstract talking points.
+                Concrete skills you&rsquo;ll bring back to your job by the end of the program - not abstract talking points.
               </p>
             </FadeInUp>
             <FadeInUp delay={0.05}>
@@ -154,7 +154,7 @@ export default function PowerBiPage() {
                 <ul className="mt-5 space-y-3 text-sm leading-relaxed">
                   {course.audienceFor.map((a) => (
                     <li key={a} className="flex gap-2">
-                      <span className="text-accent-strong mt-1">—</span>
+                      <span className="text-accent-strong mt-1">-</span>
                       <span>{a}</span>
                     </li>
                   ))}
@@ -172,7 +172,7 @@ export default function PowerBiPage() {
                 <ul className="mt-5 space-y-3 text-sm leading-relaxed text-muted-light">
                   {course.audienceNotFor.map((a) => (
                     <li key={a} className="flex gap-2">
-                      <span className="mt-1">—</span>
+                      <span className="mt-1">-</span>
                       <span>{a}</span>
                     </li>
                   ))}
@@ -236,7 +236,7 @@ export default function PowerBiPage() {
                 <ul className="mt-4 space-y-2 text-sm text-text-on-light leading-relaxed">
                   {course.cadence.map((c) => (
                     <li key={c} className="flex gap-2">
-                      <span className="text-accent-strong">—</span>
+                      <span className="text-accent-strong">-</span>
                       <span>{c}</span>
                     </li>
                   ))}
@@ -255,7 +255,7 @@ export default function PowerBiPage() {
                 <ul className="mt-2 space-y-2 text-sm text-text-on-light leading-relaxed">
                   {course.prerequisites.map((p) => (
                     <li key={p} className="flex gap-2">
-                      <span className="text-accent-strong">—</span>
+                      <span className="text-accent-strong">-</span>
                       <span>{p}</span>
                     </li>
                   ))}
@@ -338,7 +338,7 @@ export default function PowerBiPage() {
             <FadeInUp delay={0.05}>
               <Eyebrow>Instructor</Eyebrow>
               <h2 className="mt-4 text-display-md text-balance">
-                Taught by a senior practitioner.
+                Taught by an active analyst.
               </h2>
               <div className="mt-6 space-y-4 text-muted-light leading-relaxed">
                 {founder.bioParagraphs.map((p, i) => (
@@ -370,7 +370,7 @@ export default function PowerBiPage() {
               Apply for the next cohort.
             </h2>
             <p className="mt-4 text-muted-light leading-relaxed">
-              We read every application personally. Tell us where you are now and where you&rsquo;d like to be — and we&rsquo;ll tell you honestly whether this cohort fits.
+              We read every application personally. Tell us where you are now and where you&rsquo;d like to be - and we&rsquo;ll tell you honestly whether this cohort fits.
             </p>
           </FadeInUp>
           <FadeInUp delay={0.05} className="mt-10">

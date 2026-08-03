@@ -22,7 +22,7 @@ export function HeroDashboard() {
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="ml-3 text-[11px] font-medium text-muted-dark">
-              Sales Performance — Q4
+              Sales Performance - Q4
             </span>
           </div>
           <span className="rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 text-[10px] text-muted-dark">

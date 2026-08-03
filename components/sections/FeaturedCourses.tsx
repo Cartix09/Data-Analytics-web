@@ -24,7 +24,7 @@ export async function FeaturedCourses() {
             Programs built around outcomes.
           </h2>
           <p className="mt-4 text-muted-light leading-relaxed">
-            Cohort and self-paced programs in the tools analysts actually use at work — taught by a practitioner.
+            Cohort and self-paced programs in the tools analysts use at work, taught with real reporting examples.
           </p>
         </FadeInUp>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">

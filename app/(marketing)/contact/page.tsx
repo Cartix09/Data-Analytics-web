@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Course questions, consulting inquiries, corporate training — one inbox. We reply within one business day.",
+    "Course questions, consulting inquiries, corporate training - one inbox. We reply within one business day.",
   path: "/contact",
 });
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Tell us what your team is trying to figure out."
-        subtitle="Whether you're scoping a dashboard build, automating recurring reports, training your analytics team, or picking the right course for yourself — the same inbox reads them all. We reply within one business day."
+        subtitle="Whether you're scoping a dashboard build, automating recurring reports, training your analytics team, or picking the right course for yourself - the same inbox reads them all. We reply within one business day."
       />
 
       <Section tone="light">

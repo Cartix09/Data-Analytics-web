@@ -40,7 +40,7 @@ function CardBody({
   const live = liveCourseSlugs.has(course.slug);
   return (
     <>
-      {/* fixed-aspect mockup frame — every card's preview is the same size */}
+      {/* fixed-aspect mockup frame - every card's preview is the same size */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-base border-b border-border-light">
         <div aria-hidden className="absolute inset-0 grid-pattern opacity-50" />
         <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -50,9 +50,9 @@ function CardBody({
         </div>
       </div>
 
-      {/* body — fills remaining height; bottom meta row is pinned by mt-auto */}
+      {/* body - fills remaining height; bottom meta row is pinned by mt-auto */}
       <div className="flex flex-1 flex-col p-6 md:p-7">
-        {/* chips row — fixed two-row height so cards with and without
+        {/* chips row - fixed two-row height so cards with and without
              "Coming soon" still have titles aligned across the grid */}
         <div className="flex flex-wrap items-start gap-2 min-h-[64px] content-start">
           <Chip tone="accent">{course.level}</Chip>
@@ -64,17 +64,17 @@ function CardBody({
           ) : null}
         </div>
 
-        {/* title — reserved min-height keeps the line below aligned */}
+        {/* title - reserved min-height keeps the line below aligned */}
         <h3 className="mt-3 text-xl font-semibold leading-snug text-text-on-light text-balance min-h-[3.25rem]">
           {course.title}
         </h3>
 
-        {/* outcome — reserved min-height for three-line consistency */}
+        {/* outcome - reserved min-height for three-line consistency */}
         <p className="mt-2 text-sm text-muted-light leading-relaxed min-h-[4.5rem]">
           {course.outcome}
         </p>
 
-        {/* footer — always at the bottom of the card */}
+        {/* footer - always at the bottom of the card */}
         <div className="mt-auto flex items-center justify-between border-t border-border-light pt-4">
           <span className="inline-flex items-center gap-1.5 text-xs text-muted-light">
             <Clock size={13} aria-hidden /> {course.durationLabel}

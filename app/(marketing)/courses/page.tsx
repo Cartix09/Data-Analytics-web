@@ -17,7 +17,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Courses",
   description:
-    "Cohort and self-paced analytics programs from ANLYTICS — Power BI, SQL, Python, dashboard design, reporting automation, and corporate Power BI training for teams.",
+    "Cohort and self-paced analytics programs from ANLYTICS - Power BI, SQL, Python, dashboard design, reporting automation, and corporate Power BI training for teams.",
   path: "/courses",
 });
 
@@ -29,7 +29,7 @@ export default async function CoursesPage() {
       <PageHero
         eyebrow="Courses"
         title="Programs for analysts and teams at every stage."
-        subtitle="Cohort programs for working analysts, self-paced courses for upskillers, and corporate training engagements for teams. All taught by a practitioner."
+        subtitle="Cohort programs for working analysts, self-paced courses for upskillers, and corporate training engagements for teams - taught with real workplace reporting in mind."
       />
 
       <Section tone="light" spacing="default" className="pt-6 md:pt-10">
@@ -51,7 +51,7 @@ export default async function CoursesPage() {
                   Bring ANLYTICS to your team.
                 </h2>
                 <p className="mt-3 text-muted-dark leading-relaxed max-w-2xl">
-                  Power BI, SQL, and reporting workflows taught against your team&rsquo;s real data — on your schedule, with measurable team outcomes and a capstone deliverable your business can use.
+                  Power BI, SQL, and reporting workflows taught against your team&rsquo;s real data - on your schedule, with measurable team outcomes and a capstone deliverable your business can use.
                 </p>
               </div>
               <Button href="/contact" size="lg">
@@ -70,7 +70,7 @@ export default async function CoursesPage() {
               Tell us what you&rsquo;re trying to figure out.
             </h2>
             <p className="mt-4 text-muted-light leading-relaxed">
-              A short message or a 15-minute call is usually enough to point you to the right program — or tell you honestly that we&rsquo;re not the right fit.
+              A short message or a 15-minute call is usually enough to point you to the right program - or tell you honestly that we&rsquo;re not the right fit.
             </p>
             <Link
               href="/contact"

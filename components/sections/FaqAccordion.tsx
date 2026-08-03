@@ -115,8 +115,8 @@ export function FaqAccordion({
                 </button>
 
                 {/*
-                  Before mount: render a plain static panel — visible when open,
-                  hidden when closed — so SSR and hydration match exactly.
+                  Before mount: render a plain static panel - visible when open,
+                  hidden when closed - so SSR and hydration match exactly.
                   After mount: switch to AnimatePresence for the smooth animation.
                 */}
                 {!mounted ? (

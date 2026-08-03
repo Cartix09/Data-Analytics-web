@@ -6,7 +6,7 @@ import { site } from "@/content/site";
  *
  * The URL is read from `NEXT_PUBLIC_BOOKING_URL` via `site.bookingUrl`.
  * When it's missing, we render a helpful fallback pointing the visitor to
- * email — never a broken iframe.
+ * email - never a broken iframe.
  *
  * See README → "Cal.com booking setup" for how to configure this without
  * needing the Cal.com API.

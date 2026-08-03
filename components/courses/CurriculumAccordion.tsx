@@ -58,7 +58,7 @@ export function CurriculumAccordion({ weeks }: Props) {
                       </p>
                       <ul className="space-y-1.5 text-sm text-text-on-light">
                         {w.goals.map((g) => (
-                          <li key={g} className="leading-relaxed">— {g}</li>
+                          <li key={g} className="leading-relaxed">- {g}</li>
                         ))}
                       </ul>
                     </div>

@@ -47,18 +47,18 @@ export const courses: Course[] = [
     title: "Power BI Mastery",
     eyebrow: "Cohort + self-paced · PL-300 aligned",
     outcome:
-      "Build dashboards that earn their place on the executive screen — and pass PL-300 along the way.",
+      "Build dashboards that earn their place on the executive screen - and pass PL-300 along the way.",
     level: "Intermediate",
     format: "Cohort",
     audience: "Both",
     durationLabel: "8 weeks",
     topics: ["Power BI", "DAX", "Modeling", "Dashboards"],
     heroH1:
-      "Power BI Mastery — Build dashboards that earn their place on the executive screen.",
+      "Power BI Mastery - Build dashboards that earn their place on the executive screen.",
     heroSubhead:
-      "An 8-week program in Power BI modeling, DAX, and dashboard design — taught by a practitioner who builds production reporting at P&G. Aligned with the PL-300 exam, but designed for the work itself.",
+      "An 8-week program in Power BI modeling, DAX, and dashboard design - taught by a practitioner who builds production reporting at P&G. Aligned with the PL-300 exam, but designed for the work itself.",
     outcomes: [
-      "Build a clean star schema from a messy export — and explain why it matters.",
+      "Build a clean star schema from a messy export - and explain why it matters.",
       "Write DAX measures that don't break when filters or contexts change.",
       "Design dashboards that answer one specific business question, end to end.",
       "Connect Power BI to SQL sources and refresh on a schedule, with credentials handled correctly.",
@@ -73,7 +73,7 @@ export const courses: Course[] = [
     ],
     audienceNotFor: [
       "People looking for a quick certificate without doing the work.",
-      "Engineers who want a deep-dive into Fabric data engineering — that's a different course.",
+      "Engineers who want a deep-dive into Fabric data engineering - that's a different course.",
       "Teams who want pure Excel training with no modeling.",
     ],
     curriculum: [
@@ -159,7 +159,7 @@ export const courses: Course[] = [
       },
     ],
     capstone:
-      "A complete Power BI dashboard built on a real business dataset — modeled, measured, secured, and ready for a portfolio review.",
+      "A complete Power BI dashboard built on a real business dataset - modeled, measured, secured, and ready for a portfolio review.",
     cadence: [
       "Weekly live session with Alish (90 minutes).",
       "Async lessons released at the start of each week.",
@@ -181,7 +181,7 @@ export const courses: Course[] = [
       },
       {
         title: "Weekly review with the instructor.",
-        body: "Your work is reviewed every week — not just at the end.",
+        body: "Your work is reviewed every week - not just at the end.",
       },
       {
         title: "Reporting automation included.",
@@ -189,7 +189,7 @@ export const courses: Course[] = [
       },
       {
         title: "Designed for the job, not just the exam.",
-        body: "The capstone is a portfolio piece — built to be shown to a hiring manager or your VP.",
+        body: "The capstone is a portfolio piece - built to be shown to a hiring manager or your VP.",
       },
     ],
     faq: [
@@ -240,7 +240,7 @@ export const courses: Course[] = [
     audience: "Both",
     durationLabel: "6 weeks · self-paced",
     topics: ["SQL", "Data modeling", "Analytics"],
-    heroH1: "SQL for Analysts — Stop waiting on the data team.",
+    heroH1: "SQL for Analysts - Stop waiting on the data team.",
     heroSubhead:
       "A practical SQL course built around analyst workflows: pull, shape, validate, and ship the data you need without filing a ticket.",
     outcomes: [
@@ -260,7 +260,7 @@ export const courses: Course[] = [
     ],
     curriculum: [],
     capstone:
-      "A self-built analytics query pack against a sample warehouse — joins, CTEs, window functions, validated end to end.",
+      "A self-built analytics query pack against a sample warehouse - joins, CTEs, window functions, validated end to end.",
     cadence: [
       "Self-paced lessons released in full at enrollment.",
       "Monthly group office hours with the instructor.",
@@ -279,13 +279,13 @@ export const courses: Course[] = [
     title: "Python for Analysts",
     eyebrow: "Self-paced",
     outcome:
-      "Automate the work you keep doing twice — without becoming a software engineer.",
+      "Automate the work you keep doing twice - without becoming a software engineer.",
     level: "Intermediate",
     format: "Self-paced",
     audience: "Both",
     durationLabel: "6 weeks · self-paced",
     topics: ["Python", "Pandas", "Automation"],
-    heroH1: "Python for Analysts — Automate the work you keep doing twice.",
+    heroH1: "Python for Analysts - Automate the work you keep doing twice.",
     heroSubhead:
       "A focused Python course for analysts: pandas, scripts, scheduled jobs, and the right amount of engineering to make your reporting run itself.",
     outcomes: [
@@ -330,7 +330,7 @@ export const courses: Course[] = [
     audience: "Both",
     durationLabel: "3-week workshop",
     topics: ["Dashboard Design", "Visualization"],
-    heroH1: "Dashboard Design Studio — designed for the decision, not the demo.",
+    heroH1: "Dashboard Design Studio - designed for the decision, not the demo.",
     heroSubhead:
       "A focused workshop on dashboard layout, visual hierarchy, and the design choices that turn a report into a decision tool.",
     outcomes: [
@@ -364,7 +364,7 @@ export const courses: Course[] = [
     audience: "Both",
     durationLabel: "4 weeks · self-paced",
     topics: ["Automation", "Power BI", "Power Automate", "Python"],
-    heroH1: "Reporting Automation — from manual Monday to a system that runs itself.",
+    heroH1: "Reporting Automation - from manual Monday to a system that runs itself.",
     heroSubhead:
       "A practical course in turning recurring reports into refresh-on-schedule pipelines, with the audit trail your finance and compliance teams need.",
     outcomes: [
@@ -398,9 +398,9 @@ export const courses: Course[] = [
     level: "Beginner",
     format: "Hybrid",
     audience: "B2B",
-    durationLabel: "Custom — 4 to 12 weeks",
+    durationLabel: "Custom - 4 to 12 weeks",
     topics: ["Power BI", "SQL", "Reporting", "Workshops"],
-    heroH1: "Corporate Analytics Training — built for your team, mapped to your data.",
+    heroH1: "Corporate Analytics Training - built for your team, mapped to your data.",
     heroSubhead:
       "Power BI, SQL, and reporting workflows taught against your real data, on your schedule, with measurable team outcomes.",
     outcomes: [
@@ -412,7 +412,7 @@ export const courses: Course[] = [
       "Heads of Data, Analytics, Finance, and Operations.",
       "BI managers building or scaling an analytics team.",
     ],
-    audienceNotFor: ["Individual learners — see the public courses."],
+    audienceNotFor: ["Individual learners - see the public courses."],
     curriculum: [],
     capstone: "A team-shipped dashboard or reporting workflow, built against your real data.",
     cadence: [

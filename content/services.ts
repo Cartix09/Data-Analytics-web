@@ -30,7 +30,7 @@ export const services: Service[] = [
     slug: "reporting-automation",
     title: "Reporting Automation",
     summary:
-      "We turn manual, recurring reports into refresh-on-schedule pipelines — with the audit trail your finance and compliance teams need.",
+      "We turn manual, recurring reports into refresh-on-schedule pipelines - with the audit trail your finance and compliance teams need.",
     outcomes: [
       "Hours of weekly assembly time recovered.",
       "Reports that refresh on a schedule, not on a deadline.",
@@ -38,7 +38,7 @@ export const services: Service[] = [
     ],
     deliverables: [
       "Audit of the current reporting workflow.",
-      "Automation built in Power BI, Power Automate, or Python — whichever fits.",
+      "Automation built in Power BI, Power Automate, or Python - whichever fits.",
       "Scheduled refresh with credential and error handling.",
       "Operating runbook for your team.",
     ],
@@ -48,7 +48,7 @@ export const services: Service[] = [
     slug: "analytics-audit",
     title: "Analytics Audit",
     summary:
-      "We map your reporting stack, find the leaks, and tell you what to fix first — before you spend on more tools.",
+      "We map your reporting stack, find the leaks, and tell you what to fix first - before you spend on more tools.",
     outcomes: [
       "A clear map of your current reporting stack.",
       "A prioritized list of what to fix and what to retire.",
@@ -66,7 +66,7 @@ export const services: Service[] = [
     slug: "corporate-training",
     title: "Corporate Training",
     summary:
-      "Power BI, SQL, and reporting workflows taught against your real data — on your schedule, with measurable team outcomes.",
+      "Power BI, SQL, and reporting workflows taught against your real data - on your schedule, with measurable team outcomes.",
     outcomes: [
       "A consistent analytics baseline across the team.",
       "Hands-on training mapped to your real datasets.",
@@ -93,7 +93,7 @@ export const engagementModels = [
   },
   {
     title: "Workshop / training engagement",
-    body: "A structured Power BI, SQL, or reporting program for your team — taught against your real data.",
+    body: "A structured Power BI, SQL, or reporting program for your team - taught against your real data.",
   },
 ];
 

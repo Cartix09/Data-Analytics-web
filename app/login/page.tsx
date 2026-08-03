@@ -30,12 +30,12 @@ export default function StudentHubPage() {
       <PageHero
         eyebrow="Student Hub · MVP"
         title="Welcome to the ANLYTICS Student Hub."
-        subtitle="A simple home for course materials, live sessions, and availability — while the full ANLYTICS portal is being built. Bookmark this page."
+        subtitle="A simple home for course materials, live sessions, and availability - while the full ANLYTICS portal is being built. Bookmark this page."
       >
         <div className="flex flex-wrap items-start gap-3 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm text-muted-dark max-w-2xl">
           <Info size={18} aria-hidden className="text-accent mt-0.5 shrink-0" />
           <p>
-            This is a temporary hub. We don&rsquo;t require login yet — keep this
+            This is a temporary hub. We don&rsquo;t require login yet - keep this
             URL private and only share it with current students.
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function StudentHubPage() {
                 </Button>
               ) : (
                 <div className="text-sm text-muted-light">
-                  Classroom link coming — your instructor will share it.
+                  Classroom link coming - your instructor will share it.
                 </div>
               )}
             </Card>
@@ -84,7 +84,7 @@ export default function StudentHubPage() {
             </h2>
             <p className="mt-4 text-muted-light leading-relaxed">
               All live sessions run on Microsoft Teams. Add the links to your
-              calendar — recordings are posted in Google Classroom afterwards.
+              calendar - recordings are posted in Google Classroom afterwards.
             </p>
           </FadeInUp>
           <div className="mt-10 grid gap-6 md:grid-cols-3 items-stretch">
@@ -131,20 +131,20 @@ export default function StudentHubPage() {
               </h2>
               <p className="mt-4 text-muted-light leading-relaxed">
                 We use this to choose live session times that work for most
-                students. Pick every slot you&rsquo;d realistically join — you
+                students. Pick every slot you&rsquo;d realistically join - you
                 can update it any time by submitting again.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-muted-light">
                 <li className="flex gap-2">
-                  <span className="text-accent-strong">—</span>
+                  <span className="text-accent-strong">-</span>
                   <span>Slots are general weekly windows, not single dates.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-accent-strong">—</span>
+                  <span className="text-accent-strong">-</span>
                   <span>Add a time zone in the notes if you&rsquo;re outside CET.</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-accent-strong">—</span>
+                  <span className="text-accent-strong">-</span>
                   <span>We&rsquo;ll confirm new session times in Google Classroom.</span>
                 </li>
               </ul>
@@ -164,7 +164,7 @@ export default function StudentHubPage() {
           <FadeInUp className="max-w-2xl">
             <Eyebrow>Course materials</Eyebrow>
             <h2 className="mt-4 text-display-md text-balance">
-              Everything you need to get started — and stay on track.
+              Everything you need to get started - and stay on track.
             </h2>
             <p className="mt-4 text-muted-light leading-relaxed">
               Resources curated for the current cohort. New materials are added
@@ -218,8 +218,8 @@ export default function StudentHubPage() {
               Stuck on something? Email us.
             </h2>
             <p className="mt-4 text-muted-dark leading-relaxed">
-              For anything course-related — missed sessions, materials access,
-              technical issues — email{" "}
+              For anything course-related - missed sessions, materials access,
+              technical issues - email{" "}
               <a className="text-accent hover:underline" href="mailto:hello@anlytics.com">
                 hello@anlytics.com
               </a>

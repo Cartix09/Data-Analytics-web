@@ -19,7 +19,7 @@ export default function NotFound() {
           This dashboard hasn&rsquo;t been modeled yet.
         </h1>
         <p className="mt-6 max-w-md text-muted-dark leading-relaxed">
-          The page you&rsquo;re looking for doesn&rsquo;t exist — or has moved. Head back home and try again.
+          The page you&rsquo;re looking for doesn&rsquo;t exist - or has moved. Head back home and try again.
         </p>
         <Link
           href="/"

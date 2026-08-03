@@ -1,8 +1,8 @@
-# ANLYTICS — Phase 1 MVP
+# ANLYTICS - Phase 1 MVP
 
-A premium, data-native marketing website for **ANLYTICS** — the analytics studio and school led by Alish Niftaliyev (Senior Data Analyst at Procter & Gamble · PL-300 Instructor & Mentor).
+A premium, data-native marketing website for **ANLYTICS** - the analytics studio and school led by Alish Niftaliyev (Expert Data Analyst at Procter & Gamble · PL-300 Instructor & Mentor).
 
-This is the **Phase 1** public website. The full LMS (auth, lessons, payments, certificates) is intentionally deferred to Phase 2 — `/login` is a placeholder.
+This is the **Phase 1** public website. The full LMS (auth, lessons, payments, certificates) is intentionally deferred to Phase 2 - `/login` is a placeholder.
 
 ## Stack
 
@@ -49,16 +49,16 @@ In MVP the API routes accept submissions and `console.log` them so you can see t
 To configure:
 
 1. Create an event type in Cal.com (e.g. a 30-minute consultation).
-2. Copy the booking URL — for example `https://cal.com/your-username/30min`.
+2. Copy the booking URL - for example `https://cal.com/your-username/30min`.
 3. Add it to `.env.local`:
    ```
    NEXT_PUBLIC_BOOKING_URL=https://cal.com/your-username/30min
    ```
 4. Restart `pnpm dev` (env vars are baked at server start).
 
-The embed appears on `/consulting` and `/contact`. If `NEXT_PUBLIC_BOOKING_URL` is empty, the `BookingEmbed` component renders a clean "not configured" fallback with an email CTA instead of a broken iframe — so the site never looks broken even before booking is set up.
+The embed appears on `/consulting` and `/contact`. If `NEXT_PUBLIC_BOOKING_URL` is empty, the `BookingEmbed` component renders a clean "not configured" fallback with an email CTA instead of a broken iframe - so the site never looks broken even before booking is set up.
 
-**When do you need the Cal.com API?** Only later — for custom scheduling logic, automatic CRM sync (HubSpot / Salesforce / Pipedrive), routing forms with conditional logic, or programmatic availability lookups. For Phase 1, the public booking URL is enough.
+**When do you need the Cal.com API?** Only later - for custom scheduling logic, automatic CRM sync (HubSpot / Salesforce / Pipedrive), routing forms with conditional logic, or programmatic availability lookups. For Phase 1, the public booking URL is enough.
 
 ## Student Hub
 
@@ -69,13 +69,13 @@ The embed appears on `/consulting` and `/contact`. If `NEXT_PUBLIC_BOOKING_URL` 
 - An availability form (`POST /api/availability`).
 - A "Course materials" grid.
 
-All editable content lives in [`content/studentHub.ts`](./content/studentHub.ts) — Google Classroom URL, Teams meeting URLs, weekly session schedule, materials list. Edit that file and redeploy. No CMS or admin UI yet.
+All editable content lives in [`content/studentHub.ts`](./content/studentHub.ts) - Google Classroom URL, Teams meeting URLs, weekly session schedule, materials list. Edit that file and redeploy. No CMS or admin UI yet.
 
 **Phase 2 plan:** replace `content/studentHub.ts` with a Sanity-backed CMS or a proper authenticated admin area so Alish and Mursal can edit hub links and materials without a code deploy.
 
 ## Sanity CMS setup
 
-ANLYTICS ships with a real browser-based content editor — **Sanity Studio** mounted at `/studio`. `/admin` is an alias that redirects to `/studio`.
+ANLYTICS ships with a real browser-based content editor - **Sanity Studio** mounted at `/studio`. `/admin` is an alias that redirects to `/studio`.
 
 ### Configure
 
@@ -90,9 +90,9 @@ ANLYTICS ships with a real browser-based content editor — **Sanity Studio** mo
    ```
 
 4. In the Sanity Manage dashboard, add `http://localhost:3000` (and your production domain) to the **CORS Origins** list with "Allow credentials" enabled.
-5. Restart `pnpm dev`. Visit `/studio` (or `/admin`) — log in with the Sanity account that owns the project.
+5. Restart `pnpm dev`. Visit `/studio` (or `/admin`) - log in with the Sanity account that owns the project.
 
-When `NEXT_PUBLIC_SANITY_PROJECT_ID` is unset, `/studio` renders a setup screen that walks through these steps. Every page on the site continues to render correctly from the TypeScript content files — nothing breaks, editing just isn't live in the browser yet.
+When `NEXT_PUBLIC_SANITY_PROJECT_ID` is unset, `/studio` renders a setup screen that walks through these steps. Every page on the site continues to render correctly from the TypeScript content files - nothing breaks, editing just isn't live in the browser yet.
 
 ### Editable content types (Sanity schemas)
 
@@ -105,7 +105,7 @@ When `NEXT_PUBLIC_SANITY_PROJECT_ID` is unset, `/studio` renders a setup screen 
 | `service` | Consulting service cards (title, summary, outcomes, deliverables, icon) |
 | `faqGroup` | FAQ groups by slot (home / consulting / studentHub / per-course) |
 | `resourcePost` | Resources / blog post placeholders |
-| `translation` | UI string overrides (key, English, Azerbaijani) — for browser-editing labels |
+| `translation` | UI string overrides (key, English, Azerbaijani) - for browser-editing labels |
 
 ### Versions pinned
 
@@ -121,11 +121,11 @@ The site uses Sanity where wired, with **automatic fallback** to `content/*.ts` 
 | --- | --- |
 | Homepage hero copy | Sanity `homepage.hero` → fallback to `content/i18n/en.ts > hero` |
 | Site settings | Sanity `siteSettings` → fallback to `content/site.ts` (via `studio/data.ts`) |
-| Courses, services, student hub, FAQ, resources | Fetcher pattern is defined in `studio/data.ts` — schemas exist, individual pages still read from TS fallback until you publish documents in Sanity |
+| Courses, services, student hub, FAQ, resources | Fetcher pattern is defined in `studio/data.ts` - schemas exist, individual pages still read from TS fallback until you publish documents in Sanity |
 
 ### Roadmap for full Sanity migration
 
-Pages still using `content/*.ts` only (TODO — wire `studio/data.ts` getters in next pass):
+Pages still using `content/*.ts` only (TODO - wire `studio/data.ts` getters in next pass):
 
 - `/consulting` services + engagement models
 - `/courses` catalog and the Power BI detail page
@@ -136,6 +136,54 @@ Pages still using `content/*.ts` only (TODO — wire `studio/data.ts` getters in
 
 When a document is published in Sanity, that page automatically switches over.
 
+## Learning portal (`/learn`)
+
+The learning portal is a Udemy-style area for enrolled students. Payment is handled manually outside the website (bank transfer or invoice), and access is granted per-student, per-module.
+
+### Manual enrollment flow
+
+1. Student pays outside the website (bank transfer / invoice / cash).
+2. Alish confirms the payment to Mursal.
+3. Mursal opens **`/studio` → Learning portal → Student enrollments** and creates a `studentAccess` document with:
+   - the student's email (must match exactly what they type at sign-in),
+   - the course reference,
+   - the list of `allowedModules` (module slugs the student paid for),
+   - `status: active`, optional access dates and payment notes.
+4. Student visits `/learn`, enters their email, and only sees the modules on their access list.
+
+Sanity documents win; the demo fallback in `content/learning.ts` is only used for local dev.
+
+### Routes
+
+| Route | What it does |
+| --- | --- |
+| `/learn` | Sign-in prompt if no student cookie; otherwise a dashboard of the student's enrolled courses and modules. |
+| `/learn/[courseSlug]` | Course-level module list with locked/unlocked chips. |
+| `/learn/[courseSlug]/[moduleSlug]` | Lesson list inside a purchased module. |
+| `/learn/[courseSlug]/[moduleSlug]/[lessonSlug]` | Lesson player (embeds YouTube, Vimeo, Mux, or Google Drive; renders materials + type + minutes). |
+
+### Access control (Phase 1)
+
+Access checks live in `lib/enrollment.ts` and run on the server for every `/learn/*` page. Any request to an un-purchased module `redirect()`s back to `/learn`. The cookie is `httpOnly` and `sameSite: lax`.
+
+**Phase 1 caveat:** the sign-in step just accepts an email and trusts it. That is enough for a small, invite-only cohort where the admin knows every paying email in advance - but it is **not** production-grade auth for a public paid product.
+
+### Phase 2 upgrade path
+
+- **Auth:** magic-link email (Resend + a `verificationToken` table), Clerk, Auth.js, or Supabase Auth. Replace `signInAsStudent` with a real verified flow before opening the portal publicly.
+- **Access records:** move `studentAccess` from Sanity into a proper database (Supabase / Postgres) if the number of enrolled students grows past a few hundred.
+- **Video hosting:** private Vimeo, Mux, or Bunny Stream. Signed playback URLs stop link sharing. **Google Drive links are convenient but weak** - anyone with the link can watch, so it is fine for cohort-known students but not for paid open enrollment.
+- **Certificates + progress:** add a `lessonProgress` table keyed on `(userId, lessonId)` and a certificate generator once real auth is in place.
+
+### Sanity schemas for the portal
+
+| Schema | Purpose |
+| --- | --- |
+| `learningCourse` | Course container (title, slug, summary, list of module refs). |
+| `learningModule` | Module (slug, title, summary, list of lesson refs). |
+| `lesson` | Lesson (title, type, videoUrl, description, materials, estimated minutes). |
+| `studentAccess` | The enrollment record: student email + course + `allowedModules[]` + status + dates + notes. |
+
 ## Internationalization (English / Azerbaijani)
 
 The site supports two locales out of the box: **English** (`en`, default) and **Azerbaijani** (`az`).
@@ -145,21 +193,25 @@ How it works:
 - Dictionaries live in `content/i18n/en.ts` and `content/i18n/az.ts`. `en.ts` defines the canonical `Dictionary` type; `az.ts` implements the same shape.
 - `lib/i18n.ts` exposes `getLocale()` (reads the `anlytics_locale` cookie in server components) and `getDict(locale)`.
 - `app/actions/locale.ts` is a server action that sets the cookie and revalidates the layout.
-- `components/layout/LanguageSwitcher.tsx` renders the `EN / AZ` toggle in the footer and mobile drawer.
+- `components/layout/LanguageSwitcher.tsx` renders the `EN / AZ` toggle. It is mounted in the top header (desktop) and inside the mobile drawer.
 
 Currently translated:
 
-- Navigation, hero, learn/hire split, footer (column headings, credit, newsletter), course filter labels, language switcher.
+- Header nav + mobile drawer + language switcher (in the top header).
+- Homepage hero, Learn/Hire split, Consulting preview, Methodology, Final CTA.
+- Course filter labels and shared course-card labels (View course / Notify me / Coming soon / weeks / workshop).
+- Footer column headings, credit, newsletter labels.
+- FAQ section default heading + eyebrow.
 
-**TODO:** the long-form copy below is still English-only and needs Azerbaijani versions (or a translation pipeline):
+**TODO:** the long-form copy below is still English-only and needs Azerbaijani versions:
 
-- Course detail pages (curriculum weeks, capstones, FAQ answers, course-page differentiators)
-- `/consulting` services + engagement models + methodology body copy
-- `/about` founder bio paragraphs and "what we believe" body copy
-- `/resources` post titles & descriptions
-- `/contact` form placeholder copy
-- `/admin` guide (intentionally English-only — internal page)
-- Legal pages (`/legal/privacy`, `/legal/terms`)
+- Individual course detail bodies (curriculum weeks, capstones, FAQ answers).
+- `/consulting` service outcomes/deliverables, engagement models, case studies text.
+- `/about` founder bio paragraphs and "what we believe" body copy.
+- `/resources` post titles & descriptions.
+- `/contact` and `/login` form placeholder copy.
+- `/learn` portal body copy.
+- Legal pages (`/legal/privacy`, `/legal/terms`).
 
 To add a new translatable string:
 
@@ -171,7 +223,7 @@ Product/brand tokens (Power BI, SQL, Python, PL-300, DAX, ANLYTICS, Procter & Ga
 
 ## Admin guide
 
-A read-only guide at [`/admin`](http://localhost:3000/admin) maps every editable surface to its source file. It is **not** an authenticated CMS — it is documentation in page form. The page is `noindex` and disallowed in `robots.txt`.
+`/admin` redirects to `/studio`, the real Sanity Studio. Alish and Mursal edit every configured content type in the browser from there. `/studio` uses Sanity's built-in auth (log in with the account that owns the Sanity project).
 
 Where to edit (full list also in the admin page):
 
@@ -205,7 +257,7 @@ app/
     layout.tsx
     privacy/page.tsx
     terms/page.tsx
-  login/                Standalone (no marketing chrome) — placeholder
+  login/                Standalone (no marketing chrome) - placeholder
     layout.tsx
     page.tsx
   api/
@@ -243,7 +295,7 @@ public/                 Static assets (favicon, OG image)
 
 ## Editing content
 
-All copy is in `content/*.ts`. To change a course outcome, an FAQ entry, the founder bio, or the navigation labels, edit the corresponding file — no component edits required.
+All copy is in `content/*.ts`. To change a course outcome, an FAQ entry, the founder bio, or the navigation labels, edit the corresponding file - no component edits required.
 
 When the time comes to swap the TS files for a CMS (Sanity is the planned route), keep the same TypeScript types so the components don't move.
 
@@ -258,7 +310,7 @@ Defined as CSS variables in `app/globals.css` and surfaced through Tailwind in `
 
 ## Honest content rules
 
-- **No fake metrics.** "1,200+ students" doesn't appear anywhere — it isn't true yet.
+- **No fake metrics.** "1,200+ students" doesn't appear anywhere - it isn't true yet.
 - **No fake testimonials.** `content/testimonials.ts` ships empty; the testimonials section renders an honest empty state with a single anchor quote from the founder.
 - **No lorem ipsum.** All copy is the real, ready-to-use copy.
 
@@ -275,10 +327,10 @@ Defined as CSS variables in `app/globals.css` and surfaced through Tailwind in `
 
 - [ ] Replace placeholder LinkedIn / YouTube / X URLs in `content/site.ts`.
 - [ ] Wire `NEXT_PUBLIC_BOOKING_URL` to your real Cal.com / Calendly URL.
-- [ ] Decide whether self-paced courses should also link to live pages — currently `/courses/[slug]` exists only for `power-bi-pl-300`; other courses' cards link to `/contact` and show a "Coming soon" chip.
+- [ ] Decide whether self-paced courses should also link to live pages - currently `/courses/[slug]` exists only for `power-bi-pl-300`; other courses' cards link to `/contact` and show a "Coming soon" chip.
 - [ ] Hook up `/api/contact`, `/api/newsletter`, `/api/applications` to Resend or a CRM.
 - [ ] Set up an analytics tool (Plausible or PostHog recommended).
 - [ ] Replace the `AN` initials placeholder in the founder block with a real photo when ready.
 - [ ] Run `pnpm build` and verify Lighthouse mobile scores ≥ 90 / 95 / 95 / 95.
 
-— Built by Alish Niftaliyev.
+- Built by Alish Niftaliyev.

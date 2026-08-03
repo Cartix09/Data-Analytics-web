@@ -13,7 +13,7 @@ export const methodology: MethodologyStep[] = [
   {
     number: "02",
     title: "Model",
-    body: "We design the semantic layer first — clean star schemas, well-named measures, a single source of truth.",
+    body: "We design the semantic layer first - clean star schemas, well-named measures, a single source of truth.",
   },
   {
     number: "03",
@@ -23,6 +23,6 @@ export const methodology: MethodologyStep[] = [
   {
     number: "04",
     title: "Automate",
-    body: "We wire reporting to refresh on its own — so analysts spend their time on analysis, not assembly.",
+    body: "We wire reporting to refresh on its own - so analysts spend their time on analysis, not assembly.",
   },
 ];

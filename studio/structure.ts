@@ -23,9 +23,20 @@ export const structure: StructureResolver = (S) =>
         .id("studentHub")
         .child(S.document().schemaType("studentHub").documentId("studentHub")),
       S.divider(),
-      S.documentTypeListItem("course").title("Courses"),
+      S.documentTypeListItem("course").title("Marketing: Courses"),
       S.documentTypeListItem("service").title("Consulting services"),
       S.documentTypeListItem("faqGroup").title("FAQ groups"),
       S.documentTypeListItem("resourcePost").title("Resources / blog posts"),
       S.documentTypeListItem("translation").title("UI translations"),
+      S.divider(),
+      S.listItem().title("Learning portal").child(
+        S.list()
+          .title("Learning portal")
+          .items([
+            S.documentTypeListItem("learningCourse").title("Learning courses"),
+            S.documentTypeListItem("learningModule").title("Learning modules"),
+            S.documentTypeListItem("lesson").title("Lessons"),
+            S.documentTypeListItem("studentAccess").title("Student enrollments"),
+          ])
+      ),
     ]);

@@ -19,7 +19,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Consulting",
   description:
-    "Power BI dashboard builds, reporting automation, and analytics audits — delivered by practitioners who do this work in production every day.",
+    "Power BI dashboard builds, reporting automation, and analytics audits, delivered by an analytics team that works with real business reporting every day.",
   path: "/consulting",
 });
 
@@ -29,7 +29,7 @@ export default function ConsultingPage() {
       <PageHero
         eyebrow="Consulting"
         title="Reporting that earns its place on the leadership screen."
-        subtitle="Power BI dashboard builds, reporting automation, and analytics audits — delivered by practitioners who do this work in production every day."
+        subtitle="Power BI dashboard builds, reporting automation, and analytics audits, delivered by an analytics team that works with real business reporting every day."
         tone="dark"
       >
         <div className="flex flex-wrap gap-3">
@@ -48,7 +48,7 @@ export default function ConsultingPage() {
           <FadeInUp className="max-w-2xl">
             <Eyebrow>Services</Eyebrow>
             <h2 className="mt-4 text-display-md md:text-display-lg text-balance">
-              When you&rsquo;d rather we just ship it.
+              Hands-on analytics support for teams that need working reporting systems.
             </h2>
           </FadeInUp>
           <div className="mt-12 grid gap-6 md:grid-cols-2 items-stretch">
@@ -93,7 +93,7 @@ export default function ConsultingPage() {
                       <ul className="mt-3 space-y-2 text-sm">
                         {s.deliverables.map((d) => (
                           <li key={d} className="flex gap-2">
-                            <span className="text-accent-strong shrink-0">—</span>
+                            <span className="text-accent-strong shrink-0">-</span>
                             <span className="leading-relaxed">{d}</span>
                           </li>
                         ))}
@@ -151,17 +151,17 @@ export default function ConsultingPage() {
         </Container>
       </Section>
 
-      {/* Case studies placeholder */}
+      {/* Example reporting scenarios */}
       <Section tone="dark">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <FadeInUp>
-              <Eyebrow tone="dark">Case studies</Eyebrow>
+              <Eyebrow tone="dark">Example reporting scenarios</Eyebrow>
               <h2 className="mt-4 text-display-md text-text-on-dark text-balance">
-                Case studies in publication.
+                Selected dashboard formats.
               </h2>
               <p className="mt-4 text-muted-dark leading-relaxed max-w-xl">
-                Detailed write-ups are being prepared with client permission. In the meantime, we&rsquo;re happy to walk you through past engagements privately on a consultation call — names, numbers, and dashboards.
+                The visuals below are illustrative dashboard layouts that show the kind of reporting we build for finance, operations, and marketing teams. Real client write-ups are prepared privately for consultation calls once NDAs are in place.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="#book">Book a private walkthrough</Button>
@@ -177,7 +177,7 @@ export default function ConsultingPage() {
                 <ShowcaseDashboard variant="marketing" />
                 <div className="rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-center p-8 text-center">
                   <p className="text-sm text-muted-dark">
-                    More dashboards added as engagements close and consent is granted.
+                    More dashboards added once client consent is granted.
                   </p>
                 </div>
               </div>
@@ -195,10 +195,10 @@ export default function ConsultingPage() {
             <FadeInUp>
               <Eyebrow>Book a consultation</Eyebrow>
               <h2 className="mt-4 text-display-md text-balance">
-                Tell us what you&rsquo;re trying to ship.
+                Tell us what your team is trying to solve.
               </h2>
               <p className="mt-4 text-muted-light leading-relaxed">
-                A 30-minute call is usually enough to scope the engagement. We&rsquo;ll tell you whether we&rsquo;re the right fit and, if not, point you at someone who is.
+                A 30-minute call is usually enough to scope the work. If we are not the right fit, we will say so directly and point you toward someone who is.
               </p>
               <ul className="mt-6 space-y-2.5 text-sm text-text-on-light">
                 <li className="flex gap-2">

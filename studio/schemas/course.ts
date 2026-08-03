@@ -44,8 +44,8 @@ export const course = defineType({
       type: "string",
       options: {
         list: [
-          { title: "B2C — Professionals", value: "B2C" },
-          { title: "B2B — Teams", value: "B2B" },
+          { title: "B2C - Professionals", value: "B2C" },
+          { title: "B2B - Teams", value: "B2B" },
           { title: "Both", value: "Both" },
         ],
       },

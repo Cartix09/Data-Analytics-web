@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 
 const items = [
-  "Senior Data Analyst @ Procter & Gamble",
+  "Expert Data Analyst @ Procter & Gamble",
   "PL-300 Instructor & Mentor",
   "Power BI · SQL · Python",
   "Dashboards & reporting automation",

@@ -52,7 +52,7 @@ export function Logo({ variant = "light", href = "/", className, showTagline = f
 
   if (href === null) return inner;
   return (
-    <Link href={href} aria-label="ANLYTICS — home" className="inline-flex">
+    <Link href={href} aria-label="ANLYTICS - home" className="inline-flex">
       {inner}
     </Link>
   );

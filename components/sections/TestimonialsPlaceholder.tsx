@@ -28,10 +28,10 @@ export function TestimonialsPlaceholder() {
                 className="mx-auto text-accent-strong"
               />
               <p className="mt-6 text-lg font-medium leading-relaxed">
-                &ldquo;The dashboards we build at work are decisions in disguise. The training I run is the same craft, taught the way I&rsquo;d want to be taught — practical, modeled, and ready for Monday morning.&rdquo;
+                &ldquo;The dashboards we build at work are decisions in disguise. The training I run is the same craft, taught the way I&rsquo;d want to be taught - practical, modeled, and ready for Monday morning.&rdquo;
               </p>
               <p className="mt-6 text-sm text-muted-light">
-                — Alish Niftaliyev, founder of ANLYTICS
+                - Alish Niftaliyev, founder of ANLYTICS
               </p>
             </Card>
           </FadeInUp>

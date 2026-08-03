@@ -6,7 +6,7 @@ import config from "@/sanity.config";
 import { sanityConfigured } from "@/studio/env";
 
 /**
- * Sanity Studio mounted at /studio/* — a real browser-based content editor.
+ * Sanity Studio mounted at /studio/* - a real browser-based content editor.
  *
  * Auth is handled by Sanity itself (you log in with the Sanity account that
  * owns the project on first visit). When the project ID is not configured,
@@ -62,7 +62,7 @@ function StudioSetupScreen() {
           Sanity Studio not configured yet.
         </h1>
         <p style={{ color: "#A1A1AA", marginTop: 12, lineHeight: 1.6 }}>
-          The CMS is wired up — but a Sanity project ID is missing. Set it up
+          The CMS is wired up - but a Sanity project ID is missing. Set it up
           in three steps:
         </p>
         <ol
@@ -111,7 +111,7 @@ NEXT_PUBLIC_SANITY_DATASET=production`}</pre>
         </ol>
         <p style={{ color: "#A1A1AA", marginTop: 24, fontSize: 14, lineHeight: 1.6 }}>
           Until then, every page on the site renders from the TypeScript
-          content files in <code>content/*.ts</code> — nothing is broken,
+          content files in <code>content/*.ts</code> - nothing is broken,
           editing just isn&rsquo;t live in the browser yet.
         </p>
       </div>

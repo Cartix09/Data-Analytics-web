@@ -17,7 +17,7 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — Data analytics & insights, taught and shipped`,
+    default: `${site.name} - Data analytics & insights for teams and professionals`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   creator: site.founder.name,
   publisher: site.name,
   openGraph: {
-    title: `${site.name} — Data analytics & insights, taught and shipped`,
+    title: `${site.name} - Data analytics & insights for teams and professionals`,
     description: site.description,
     siteName: site.name,
     type: "website",

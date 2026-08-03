@@ -13,12 +13,12 @@ interface Props extends HTMLMotionProps<"div"> {
  * Hydration-safe entrance animation.
  *
  * On the server and on the first client render, we render a plain `div`
- * with no motion attributes — this guarantees the SSR HTML and the initial
+ * with no motion attributes - this guarantees the SSR HTML and the initial
  * client HTML match byte-for-byte. After mount we swap to `motion.div`,
  * which animates on viewport intersection.
  *
  * For above-the-fold content the swap is imperceptible because we transition
- * from final state (opacity 1, no transform) back into the motion lifecycle —
+ * from final state (opacity 1, no transform) back into the motion lifecycle -
  * Framer Motion's `whileInView` only triggers when the element enters view,
  * so already-visible elements simply stay visible.
  */

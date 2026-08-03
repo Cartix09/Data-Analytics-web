@@ -6,6 +6,10 @@ import { studentHub } from "./studentHub";
 import { faqGroup } from "./faq";
 import { resourcePost } from "./resource";
 import { translation } from "./translation";
+import { learningCourse } from "./learningCourse";
+import { learningModule } from "./learningModule";
+import { lesson } from "./lesson";
+import { studentAccess } from "./studentAccess";
 
 export const schemaTypes = [
   siteSettings,
@@ -16,4 +20,8 @@ export const schemaTypes = [
   faqGroup,
   resourcePost,
   translation,
+  learningCourse,
+  learningModule,
+  lesson,
+  studentAccess,
 ];

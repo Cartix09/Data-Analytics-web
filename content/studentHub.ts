@@ -21,7 +21,7 @@ export interface TeamsSession {
 export interface Material {
   title: string;
   description: string;
-  /** Where the resource lives — Drive, Notion, Google Doc, etc. */
+  /** Where the resource lives - Drive, Notion, Google Doc, etc. */
   url: string;
   /** Optional category tag shown on the card. */
   tag?: string;
@@ -82,7 +82,7 @@ export const studentHub = {
     {
       title: "PL-300 study checklist",
       description:
-        "Every PL-300 exam objective mapped to a practical skill — and where in the course you build it.",
+        "Every PL-300 exam objective mapped to a practical skill - and where in the course you build it.",
       url: "#",
       tag: "Exam prep",
     },

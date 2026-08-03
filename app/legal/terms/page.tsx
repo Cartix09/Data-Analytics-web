@@ -26,7 +26,7 @@ export default function TermsPage() {
             </p>
             <h2 className="text-2xl font-semibold text-text-on-light">Courses</h2>
             <p>
-              When you enroll in a course, your access is governed by the program&rsquo;s enrollment terms — including the schedule, deliverables, refund window, and certificate criteria. Course materials are licensed for personal use; please don&rsquo;t redistribute them.
+              When you enroll in a course, your access is governed by the program&rsquo;s enrollment terms - including the schedule, deliverables, refund window, and certificate criteria. Course materials are licensed for personal use; please don&rsquo;t redistribute them.
             </p>
             <h2 className="text-2xl font-semibold text-text-on-light">Consulting</h2>
             <p>

@@ -24,7 +24,7 @@ export function websiteLd() {
     name: site.name,
     url: site.url,
     description:
-      "Practical analytics education and reporting consulting — Power BI, SQL, Python, dashboards, and reporting automation.",
+      "Practical analytics education and reporting consulting - Power BI, SQL, Python, dashboards, and reporting automation.",
   };
 }
 

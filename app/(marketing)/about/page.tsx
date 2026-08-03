@@ -13,7 +13,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "ANLYTICS is the analytics studio and school led by Alish Niftaliyev — a Senior Data Analyst at Procter & Gamble who teaches the same craft he uses at work.",
+    "ANLYTICS is the analytics studio and school led by Alish Niftaliyev - an Expert Data Analyst at Procter & Gamble who teaches the same craft he uses at work.",
   path: "/about",
 });
 
@@ -22,8 +22,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="Built by analysts who ship in production."
-        subtitle="ANLYTICS is the analytics studio and school led by Alish Niftaliyev — a Senior Data Analyst at Procter & Gamble who teaches the same craft he uses at work."
+        title="Practical analytics for teams and professionals."
+        subtitle="ANLYTICS is the analytics studio and school led by Alish Niftaliyev, an Expert Data Analyst at Procter & Gamble who teaches the same craft he uses at work."
       />
 
       {/* Founder */}
@@ -60,7 +60,7 @@ export default function AboutPage() {
             <FadeInUp delay={0.05}>
               <Eyebrow>Founder</Eyebrow>
               <h2 className="mt-4 text-display-md md:text-display-lg text-balance">
-                Senior practitioner. Working analyst. Honest teacher.
+                Working analyst. Honest teacher.
               </h2>
               <div className="mt-6 space-y-5 text-muted-light leading-relaxed">
                 {founder.bioParagraphs.map((p, i) => (
@@ -116,14 +116,14 @@ export default function AboutPage() {
           <FadeInUp>
             <Eyebrow tone="dark">How we got here</Eyebrow>
             <h2 className="mt-4 text-display-md text-text-on-dark text-balance">
-              ANLYTICS started where most analytics work starts — at the edge of a messy spreadsheet.
+              ANLYTICS started where most analytics work starts - at the edge of a messy spreadsheet.
             </h2>
             <div className="mt-6 space-y-5 text-muted-dark leading-relaxed">
               <p>
                 Working in supply analytics at P&amp;G, Alish kept seeing the same gap: junior analysts knew the tools but not the modeling, and senior leaders had dashboards that didn&rsquo;t answer the question they were really asking.
               </p>
               <p>
-                ANLYTICS exists to close that gap on both sides — by teaching the practitioner&rsquo;s craft to people who want to be taken seriously as analysts, and by shipping dashboards and reporting for teams who want it done right the first time.
+                ANLYTICS exists to close that gap on both sides: teaching real analytics workflows to people who want to be taken seriously as analysts, and delivering dashboards and reporting for teams who want the job done right the first time.
               </p>
             </div>
           </FadeInUp>

@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Resources",
   description:
-    "The Analytics Journal — practical breakdowns, templates, and notes from the work. Power BI, SQL, Python, dashboard design, and reporting automation.",
+    "The Analytics Journal - practical breakdowns, templates, and notes from the work. Power BI, SQL, Python, dashboard design, and reporting automation.",
   path: "/resources",
 });
 
@@ -24,7 +24,7 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow="Resources"
         title="The Analytics Journal."
-        subtitle="Practical breakdowns, templates, and notes from the work — without the buzzwords. The Journal opens with the first published issue. Subscribe and we'll send it the day it ships."
+        subtitle="Practical breakdowns, templates, and notes from the work - without the buzzwords. The Journal opens with the first published issue. Subscribe and we'll send it the day it ships."
       >
         <div className="max-w-xl">
           <NewsletterInline tone="light" compact />
@@ -57,14 +57,14 @@ export default function ResourcesPage() {
               First issues in the pipeline.
             </h2>
             <p className="mt-4 text-muted-light leading-relaxed">
-              We&rsquo;re writing the kind of posts we wish we&rsquo;d had earlier in our careers. Subscribe and you&rsquo;ll get them as they publish — no clickbait, no stuffing.
+              We&rsquo;re writing the kind of posts we wish we&rsquo;d had earlier in our careers. Subscribe and you&rsquo;ll get them as they publish - no clickbait, no stuffing.
             </p>
           </FadeInUp>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
             {upcomingPosts.map((post, i) => (
               <FadeInUp key={post.title} delay={i * 0.04} className="h-full">
                 <Card tone="white" hover className="h-full flex flex-col">
-                  {/* meta row — fixed min-height keeps titles aligned */}
+                  {/* meta row - fixed min-height keeps titles aligned */}
                   <div className="flex items-center justify-between min-h-[28px]">
                     <Chip tone="accent">{post.category}</Chip>
                     {post.status === "coming-soon" ? (
@@ -73,11 +73,11 @@ export default function ResourcesPage() {
                       </span>
                     ) : null}
                   </div>
-                  {/* title — reserved min-height for two lines */}
+                  {/* title - reserved min-height for two lines */}
                   <h3 className="mt-5 text-lg font-semibold leading-snug min-h-[3.25rem]">
                     {post.title}
                   </h3>
-                  {/* description — grows to fill, pushes any future footer down */}
+                  {/* description - grows to fill, pushes any future footer down */}
                   <p className="mt-3 flex-1 text-sm text-muted-light leading-relaxed">
                     {post.description}
                   </p>

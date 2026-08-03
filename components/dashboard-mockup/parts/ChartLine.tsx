@@ -14,7 +14,7 @@ interface Props {
  * On server / first client render we emit a static SVG path (no motion
  * attributes), guaranteeing the SSR HTML matches the hydrated HTML.
  * After mount, we swap to `motion.path` so the line draws on viewport
- * intersection — without ever causing a hydration mismatch.
+ * intersection - without ever causing a hydration mismatch.
  */
 export function ChartLine({ height = 140, animated = true }: Props) {
   const reduce = useReducedMotion();

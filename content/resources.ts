@@ -21,7 +21,7 @@ export interface PostCard {
   href: string;
 }
 
-// Phase 1 placeholder — honest "coming soon" cards. Replace with real posts later.
+// Phase 1 placeholder - honest "coming soon" cards. Replace with real posts later.
 export const upcomingPosts: PostCard[] = [
   {
     title: "A practical guide to the PL-300 exam (the parts that matter at work)",
@@ -43,7 +43,7 @@ export const upcomingPosts: PostCard[] = [
     title: "From manual Monday: a reporting automation walkthrough",
     category: "Automation",
     description:
-      "A real before/after — turning a recurring weekly report into a refresh-on-schedule pipeline.",
+      "A real before/after - turning a recurring weekly report into a refresh-on-schedule pipeline.",
     status: "coming-soon",
     href: "/resources",
   },
@@ -59,7 +59,7 @@ export const upcomingPosts: PostCard[] = [
     title: "SQL window functions: the four you'll actually use",
     category: "SQL",
     description:
-      "ROW_NUMBER, RANK, LAG, and SUM OVER — the window patterns that earn their keep in analyst work.",
+      "ROW_NUMBER, RANK, LAG, and SUM OVER - the window patterns that earn their keep in analyst work.",
     status: "coming-soon",
     href: "/resources",
   },
